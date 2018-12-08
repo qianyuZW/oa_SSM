@@ -1,0 +1,17 @@
+.top{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 200px;
+    background-color: black;
+}
+.left{
+    position: absolute;
+    left: 0px;
+    background-color: blueviolet;
+}
+.right{
+    position: absolute;
+    overflow: auto;
+    background-color: beige;
+}
