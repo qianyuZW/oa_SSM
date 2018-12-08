@@ -11,8 +11,14 @@ public class TestController {
     @Autowired
     private UserMapper userMapper;
 
+
     @GetMapping("/test")
     public Object getUsers(){
        return userMapper.getUserById(1);
+    }
+
+    @GetMapping("/te")
+    public String test(){
+        return "test";
     }
 }
