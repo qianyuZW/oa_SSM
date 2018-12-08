@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class UserModel {
     private int id;
-    private String UserName;
-    private long CreateTime;
+    private String UserName;//注册时间
+    private long CreateTime;//用户名
 }
