@@ -11,3 +11,10 @@ public interface UserMapper {
     @Select(value = "select * from user as t where t.id = #{userId}")
     UserModel getUserById(@Param("userId") int userId);
 }
+
+public interface WeeklySchedule {
+    //查询周计划
+    @Select(value = "select * from user as t where t.date = #{userDate}")
+    UserModel getWeeklyScheduleByDate(@Param("userDate") date userDate.getTime());
+
+}
