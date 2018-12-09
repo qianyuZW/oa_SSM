@@ -1,10 +1,12 @@
 package org.ppcirgo.oa.beans.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.io.Serializable;
 
 @Data
+@ToString
 public class UserModel implements Serializable {
     private int id;
     private String userName;//注册时间
