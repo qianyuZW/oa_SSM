@@ -15,11 +15,17 @@ public class ViewController {
     //登录页面
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        return "login";
+        return "oalogin";
     }
     //注册页面
     @RequestMapping(value = "/regist",method = RequestMethod.GET)
     public String regist(){
-        return "regist";
+        return "oaregist";
     }
+    //主页面
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public String index() {
+        return "oaindex";
+    }
+
 }

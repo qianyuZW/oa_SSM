@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>童梦缘微OA系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/style/login/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style/login/reset.css" />
+    <link href="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="particles-js">
+    <div class="regist">
+        <div class="login-top">
+            注册
+        </div>
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="/img/login/name.png" /></div>
+            <div class="login-center-input">
+                <input type="text" id="username" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'"/>
+                <div class="login-center-input-text">用户名</div>
+            </div>
+        </div>
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="/img/login/password.png"/></div>
+            <div class="login-center-input">
+                <input type="password" id="password" value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'"/>
+                <div class="login-center-input-text">密码</div>
+            </div>
+        </div>
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="/img/login/spassword.png"/></div>
+            <div class="login-center-input">
+                <input type="password" id="spassword" value="" placeholder="请再次输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请再次输入您的密码'"/>
+                <div class="login-center-input-text">确认密码</div>
+            </div>
+        </div>
+        <div class="login-center clearfix">
+            <div class="login-center-img"><img src="/img/login/email.png"/></div>
+            <div class="login-center-input">
+                <input type="email" id="email" value="" placeholder="请输入您的电子邮箱" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的电子邮箱'"/>
+                <div class="login-center-input-text">电子邮箱</div>
+            </div>
+        </div>
+        <div class="login-button" id="reg">
+            注册
+        </div>
+        <div class="login-button" id="login" style="margin-top: 20px;">
+            返回登录页面
+        </div>
+    </div>
+    <div class="sk-rotating-plane"></div>
+</div>
+
+<!-- scripts -->
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.all.min.js"></script>
+<script src="/js/login/particles.min.js"></script>
+<script src="/js/login/app.js"></script>
+<script type="text/javascript">
+    function hasClass(elem, cls) {
+        cls = cls || '';
+        if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
+        return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
+    }
+
+    function addClass(ele, cls) {
+        if (!hasClass(ele, cls)) {
+            ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
+        }
+    }
+
+    function removeClass(ele, cls) {
+        if (hasClass(ele, cls)) {
+            var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
+            while (newClass.indexOf(' ' + cls + ' ') >= 0) {
+                newClass = newClass.replace(' ' + cls + ' ', ' ');
+            }
+            ele.className = newClass.replace(/^\s+|\s+$/g, '');
+        }
+    }
+    fChkMail=function(szMail){
+        var szReg=/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+        var bChk=szReg.test(szMail);
+        return bChk;
+    }
+    document.getElementById('reg').onclick = function () {
+        var pwd = $("input[id='password']").val();
+        var spwd = $("input[id='spassword']").val();
+        var uname =$("input[id='username']").val();
+        var email =$("input[id='email']").val();
+        if("" == pwd || "" == spwd || "" == uname || "" == email){
+            sweetAlert(
+                '警告',
+                '请填写相关信息！',
+                'warning'
+            );
+            return;
+        }
+        if(fChkMail(email)==false){
+            sweetAlert(
+                '错误',
+                '邮箱格式错误！',
+                'error'
+            );
+            return;
+        }
+        if (pwd != spwd){
+            sweetAlert(
+                '错误',
+                '对不起，两次密码不一致！',
+                'error'
+            );
+            return;
+        }
+        addClass(document.querySelector(".login"), "active")
+        setTimeout(function(){
+            addClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "none"
+        },800)
+
+    }
+    document.getElementById("login").onclick = function(){
+        if($("#password").text() != $("#spassword").text()){
+            sweetAlert(
+                '错误',
+                '对不起，两次密码不一致！',
+                'error'
+            );
+        }
+        addClass(document.querySelector(".login"), "active")
+        setTimeout(function(){
+            addClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "none"
+        },800)
+
+        setTimeout(function(){
+            removeClass(document.querySelector(".login"), "active")
+            removeClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "block"
+            $.ajax({
+                type:"POST",
+                url:"/addUser",
+                data: {
+                    username: $("#username").text(),
+                    email:$("#email").text(),
+                    password:$("#password").text()
+                },
+                dataType: "json",
+
+            })
+
+        },2000)
+    }
+</script>
+</body>
+</html>
