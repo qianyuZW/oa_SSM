@@ -9,4 +9,6 @@ public interface UserService {
      * date:2018-12-09
      */
     public int addUser(UserModel userModel);
+
+    public UserModel getUser(UserModel userModel);
 }

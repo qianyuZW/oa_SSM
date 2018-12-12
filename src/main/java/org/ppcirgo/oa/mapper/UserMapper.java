@@ -15,11 +15,9 @@ public interface UserMapper {
     @Insert(value = "insert into user(user_name,password,create_time,email,level) values(#{userName},#{password},#{createTime},#{email},#{level}) ")
     int saveUser(UserModel userModel);
 
-}
-
-public interface WeeklySchedule {
-    //查询周计划
-    @Select(value = "select * from user as t where t.date = #{userDate}")
-    UserModel getWeeklyScheduleByDate(@Param("userDate") date userDate.getTime());
+    //根据用户名密码查找员工
+    @Select(value = "select * from user as t where t.user_name = #{username} and password = #{password}")
+    UserModel getUser(@Param("username")String username,@Param("password")String password);
 
 }
+

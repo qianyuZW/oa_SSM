@@ -7,10 +7,11 @@ import org.ppcirgo.oa.service.UserService;
 import org.ppcirgo.oa.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -40,4 +41,29 @@ public class UserController {
         else
             return new AJAXResult(4009,0);
     }
+
+    //用户登陆测试案例
+    @RequestMapping(value = "/yzUser",method = RequestMethod.GET)
+    @ResponseBody
+    public Map yzUser(HttpServletRequest request,
+                      @RequestParam(value = "username",required = true) String username,
+                      @RequestParam(value = "password",required = true) String password){
+        Map map = new HashMap();
+        UserModel userModel = new UserModel();
+        userModel.setUserName(username);
+        userModel.setPassword(password);
+        //此处调用service查询用户
+        UserModel user = userService.getUser(userModel);
+        if(user!=null){
+            //查询到该用户，登陆成功   在此处可以对当前用户的会话进行保存，保持登陆状态（最开始一般是使用session保持的）
+            map.put("msg","恭喜你登陆成功");
+        }else{
+            //查询不到，登陆失败
+            map.put("msg","用户名或密码错误");
+        }
+        return map;
+    }
+
+
+
 }

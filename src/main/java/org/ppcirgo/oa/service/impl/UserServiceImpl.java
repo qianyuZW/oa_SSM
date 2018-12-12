@@ -18,4 +18,13 @@ public class UserServiceImpl implements UserService {
     public int addUser(UserModel userModel) {
        return userMapper.saveUser(userModel);
     }
+
+    @Override
+    public UserModel getUser(UserModel userModel) {
+        //再此处调用dao层  查询数据库返回查询结果
+        UserModel user = userMapper.getUser(userModel.getUserName(),userModel.getPassword());
+       return user;
+    }
+
+
 }
