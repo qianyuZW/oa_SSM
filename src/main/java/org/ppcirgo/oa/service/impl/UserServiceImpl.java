@@ -25,6 +25,4 @@ public class UserServiceImpl implements UserService {
         UserModel user = userMapper.getUser(userModel.getUserName(),userModel.getPassword());
        return user;
     }
-
-
 }

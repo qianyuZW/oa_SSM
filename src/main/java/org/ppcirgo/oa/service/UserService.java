@@ -8,7 +8,7 @@ public interface UserService {
      * author:liuzhou
      * date:2018-12-09
      */
-    public int addUser(UserModel userModel);
+     int addUser(UserModel userModel);
 
-    public UserModel getUser(UserModel userModel);
+     UserModel getUser(UserModel userModel);
 }

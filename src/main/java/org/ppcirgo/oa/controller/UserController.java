@@ -43,12 +43,12 @@ public class UserController {
     }
 
     //用户登陆测试案例
-    @RequestMapping(value = "/yzUser",method = RequestMethod.GET)
+    @RequestMapping(value = "/authUser",method = RequestMethod.GET)
     @ResponseBody
-    public Map yzUser(HttpServletRequest request,
-                      @RequestParam(value = "username",required = true) String username,
-                      @RequestParam(value = "password",required = true) String password){
-        Map map = new HashMap();
+    public Object authUser(HttpServletRequest request,
+                      @RequestParam(value = "username") String username,
+                      @RequestParam(value = "password") String password){
+        //Map map = new HashMap();
         UserModel userModel = new UserModel();
         userModel.setUserName(username);
         userModel.setPassword(password);
@@ -56,12 +56,13 @@ public class UserController {
         UserModel user = userService.getUser(userModel);
         if(user!=null){
             //查询到该用户，登陆成功   在此处可以对当前用户的会话进行保存，保持登陆状态（最开始一般是使用session保持的）
-            map.put("msg","恭喜你登陆成功");
+            request.getSession().setAttribute("session_user",user);
+            return new AJAXResult("ok");
         }else{
             //查询不到，登陆失败
-            map.put("msg","用户名或密码错误");
+            return new AJAXResult("no");
         }
-        return map;
+        //n new AJAXResult("");
     }
 
 
