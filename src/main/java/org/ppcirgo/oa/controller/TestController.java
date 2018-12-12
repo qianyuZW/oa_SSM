@@ -14,6 +14,8 @@ public class TestController {
     @Autowired
     private UserMapper userMapper;
 
+    private Exception exception = new Exception();
+
 
     @GetMapping("/test")
     @ResponseBody
@@ -23,5 +25,10 @@ public class TestController {
         return userModel;
     }
 
+    //测试500异常
+    @GetMapping("/ex")
+    public void ex(){
+        int a=5/0;
+    }
 
 }
