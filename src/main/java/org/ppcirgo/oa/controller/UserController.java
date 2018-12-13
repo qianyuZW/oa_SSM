@@ -48,14 +48,13 @@ public class UserController {
     public Object authUser(HttpServletRequest request,
                       @RequestParam(value = "username") String username,
                       @RequestParam(value = "password") String password){
-        //Map map = new HashMap();
         UserModel userModel = new UserModel();
         userModel.setUserName(username);
         userModel.setPassword(password);
         //此处调用service查询用户
         UserModel user = userService.getUser(userModel);
         if(user!=null){
-            //查询到该用户，登陆成功   在此处可以对当前用户的会话进行保存，保持登陆状态（最开始一般是使用session保持的）
+            //查询到该用户，登陆成功
             request.getSession().setAttribute("session_user",user);
             return new AJAXResult("ok");
         }else{
