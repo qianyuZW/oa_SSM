@@ -44,7 +44,7 @@ $(function () {
                         sweetAlert('注册成功','赶紧登录吧！','info');
                     }
                     if(data.msg == error){
-                        sweetAlert('注册失败','您无法完成注册，企业未对你进行邀请！','info');
+                        sweetAlert('注册失败','您无法完成注册，企业邀请码已过期！','info');
                     }
                 }
             })

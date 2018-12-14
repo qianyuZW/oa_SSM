@@ -23,7 +23,7 @@ public class LoginAndRegistController {
 
     @Autowired
     private  UserService userService;
-    @Value("oa.user.level")
+    @Value("2")
     private String defaultLevel;//默认的用户等级
 
     //用户登录验证   liuzhou 1214
@@ -77,10 +77,15 @@ public class LoginAndRegistController {
         userModel.setLevel(defaultLevel);
         userModel.setPassword(MD5Utils.encodeByMD5(password));
         userModel.setUserName(userName);
+        System.out.println(userModel);
+
+        if (!MsgCode.ivt.equals(ivt))
+            return new AJAXResult(MsgCode.error);//企业未邀请
+        if (userService.findUserByEmail(email)!=null)
+            return new AJAXResult(MsgCode.isexsit);//邮箱已被注册
         if (userService.addUser(userModel)>0)
             return new AJAXResult(MsgCode.success);
-        else
-            return new AJAXResult(MsgCode.error);
+        return new AJAXResult(MsgCode.error);//企业未邀请
     }
 
 }
