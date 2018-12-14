@@ -18,4 +18,14 @@ public class UserServiceImpl implements UserService {
     public int addUser(UserModel userModel) {
        return userMapper.saveUser(userModel);
     }
+
+    @Override
+    public UserModel findUserByEmail(String email) {
+        return userMapper.getUserByEmail(email);
+    }
+
+    @Override
+    public int updatePasswordByemail(String email,String password) {
+        return userMapper.updatePasswordByEmail(password,email);
+    }
 }
