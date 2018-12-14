@@ -23,7 +23,7 @@ public class LoginAndRegistController {
 
     @Autowired
     private  UserService userService;
-    @Value("2")
+    @Value("${oa.user.level}")
     private String defaultLevel;//默认的用户等级
 
     //用户登录验证   liuzhou 1214
@@ -86,6 +86,19 @@ public class LoginAndRegistController {
         if (userService.addUser(userModel)>0)
             return new AJAXResult(MsgCode.success);
         return new AJAXResult(MsgCode.error);//企业未邀请
+    }
+
+    //是否online
+    public Object isOnL(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Object user=session.getAttribute("user");
+        if (user!=null){
+            UserModel userModel = (UserModel) user;
+            return new AJAXResult(userModel);
+        }else {
+            return new AJAXResult(MsgCode.error);
+        }
+
     }
 
 }
