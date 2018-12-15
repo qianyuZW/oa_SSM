@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,4 +20,25 @@ public class UserServiceImpl implements UserService {
     public int addUser(UserModel userModel) {
        return userMapper.saveUser(userModel);
     }
+
+    @Override
+    public UserModel findUserByEmail(String email) {
+        return userMapper.getUserByEmail(email);
+    }
+
+    @Override
+    public int updatePasswordByemail(String email,String password) {
+        return userMapper.updatePasswordByEmail(password,email);
+    }
+
+    @Override
+    public int updateStatusByemail(String email, String status) {
+        return userMapper.updateStatusByEmail(status,email);
+    }
+
+    @Override
+    public List<UserModel> getUserByStatus(String statsu) {
+        return userMapper.getUserBystatus(statsu);
+    }
+
 }
