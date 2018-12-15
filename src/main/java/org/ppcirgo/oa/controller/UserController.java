@@ -23,7 +23,7 @@ public class UserController {
     private String defaultLevel;//默认的用户等级
 
     //用户注册
-    @RequestMapping(value = "/addUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/regist",method = RequestMethod.POST)
     public Object userRegist(
             @RequestParam(value = "username",required = true) String userName,
             @RequestParam(value = "password",required = true) String password,
@@ -39,5 +39,13 @@ public class UserController {
             return new AJAXResult(1);
         else
             return new AJAXResult(4009,0);
+    }
+    //用户登录验证
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public Object login(
+            @RequestParam(value = "email") String email,
+            @RequestParam(value = "password") String password
+    ){
+        return new AJAXResult('1');
     }
 }
