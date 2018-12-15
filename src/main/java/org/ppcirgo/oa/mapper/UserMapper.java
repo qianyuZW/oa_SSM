@@ -15,4 +15,5 @@ public interface UserMapper {
     @Insert(value = "insert into user(user_name,password,create_time,email,level) values(#{userName},#{password},#{createTime},#{email},#{level}) ")
     int saveUser(UserModel userModel);
 
+
 }
