@@ -1,17 +1,14 @@
 package org.ppcirgo.oa.controller;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
+import org.ppcirgo.oa.beans.enums.UserStatus;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.service.UserService;
 import org.ppcirgo.oa.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -40,6 +37,7 @@ public class LoginAndRegistController {
         }
         if (userModel!=null && userModel.getPassword().equals(MD5Utils.encodeByMD5(password))){
             session.setAttribute("user",userModel);//缓存用户状态
+            userService.updateStatusByemail(email, UserStatus.online.toString());
             return new AJAXResult(MsgCode.success);
         }else {
             return new AJAXResult(MsgCode.error);//不匹配
@@ -89,16 +87,33 @@ public class LoginAndRegistController {
     }
 
     //是否online
+    @RequestMapping(value = "/isOnLine",method = RequestMethod.POST)
     public Object isOnL(HttpServletRequest request){
         HttpSession session = request.getSession();
         Object user=session.getAttribute("user");
         if (user!=null){
             UserModel userModel = (UserModel) user;
+            userModel.setPassword(null);
+            userModel.setLevel(null);
+            userModel.setCreateTime(0);
             return new AJAXResult(userModel);
         }else {
             return new AJAXResult(MsgCode.error);
         }
+    }
 
+    //安全退出
+    @PostMapping("/offline")
+    public Object quit(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        UserModel user=(UserModel)session.getAttribute("user");
+        if (user!=null){
+            System.out.println("*************************"+user.getEmail());
+            userService.updateStatusByemail(user.getEmail(), UserStatus.offline.toString());
+            session.removeAttribute("user");
+        }
+
+        return new AJAXResult("not online");
     }
 
 }
