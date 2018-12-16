@@ -1,6 +1,5 @@
 package org.ppcirgo.oa.service.impl;
 import org.ppcirgo.oa.beans.model.PlanModel;
-import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.mapper.PlanMapper;
 import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,17 +8,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-
+@RestController
 public class PlanController {
 
     @Autowired
     private PlanService planService;
 
-    @Value("oa.week_plan.level")
+    //@Value("oa.week_plan.level")
+    @Value("${oa.week_plan.level}")
     private String defaultLevel;//默认的用户等级
 
-    @RequestMapping(value = "/weekPlan",method = RequestMethod.POST)
+    @RequestMapping(value = "/weekPlan",method = RequestMethod.GET)
     public Object userPlan(
             @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent,
             @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
