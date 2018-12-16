@@ -17,7 +17,7 @@ $(function () {
             }
         })
     }
-    isload();
+   // isload();
 
     offline=function () {
         swal({
