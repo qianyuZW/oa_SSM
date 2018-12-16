@@ -1,5 +1,7 @@
 package org.ppcirgo.oa.service.impl;
 
+import org.ppcirgo.oa.beans.model.MailModel;
+import org.ppcirgo.oa.mapper.MailMapper;
 import org.ppcirgo.oa.service.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +25,14 @@ public class MailServiceImpl  implements MailService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private JavaMailSender mailSender;
-
+    @Autowired
+    private MailMapper mailMapper;
 
 
     @Value("minzhang1534781927@163.com")
     private String from;
+
+    MailModel emailModel=new MailModel();
 
     /**
      * 发送简单邮件
@@ -115,8 +120,10 @@ public class MailServiceImpl  implements MailService {
         }
     }
 
-
-
+    @Override
+    public int saveEmailRecord(MailModel mailModel) {
+        return  mailMapper.saveEmailRecord(mailModel);
+    }
 
 
 }

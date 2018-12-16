@@ -14,10 +14,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
-
     @Override
     public int addUser(UserModel userModel) {
-       return userMapper.saveUser(userModel);
+        return userMapper.saveUser(userModel);
+    }
+
+    @Override
+    public UserModel findUserByEmail(String email) {
+        return userMapper.getUserByEmail(email);
+    }
+
+    @Override
+    public int updatePasswordByemail(String email,String password) {
+        return userMapper.updatePasswordByEmail(password,email);
     }
 }

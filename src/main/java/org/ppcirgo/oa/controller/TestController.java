@@ -1,3 +1,4 @@
+
 package org.ppcirgo.oa.controller;
 
 import org.ppcirgo.oa.beans.model.UserModel;
@@ -14,14 +15,21 @@ public class TestController {
     @Autowired
     private UserMapper userMapper;
 
+    private Exception exception = new Exception();
+
 
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
-        UserModel userModel = userMapper.getUserById(1);
+        UserModel userModel = userMapper.getUserByEmail("");
         System.out.println(userModel);
         return userModel;
     }
 
+    //测试500异常
+    @GetMapping("/ex")
+    public void ex(){
+        int a=5/0;
+    }
 
 }
