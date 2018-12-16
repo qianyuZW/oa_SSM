@@ -11,4 +11,5 @@ public interface UserService {
      int addUser(UserModel userModel);
 
      UserModel getUser(UserModel userModel);
+
 }

@@ -14,7 +14,11 @@ public class ViewController {
     //登录注册页面
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        return "oa_login_regist";
+        return "oalogin";
+    }
+    @RequestMapping(value = "/regist",method = RequestMethod.GET)
+    public String regist(){
+        return "oaregist";
     }
 
     //主页面
@@ -22,5 +26,18 @@ public class ViewController {
     public String index() {
         return "oaindex";
     }
+
+    //考勤查询页面
+    @RequestMapping(value = "/aquery",method = RequestMethod.GET)
+    public String attQuery(){
+        return "concrete/oa_att_query";
+    }
+
+    //网络布局页面
+    @RequestMapping(value = "/netlayout",method = RequestMethod.GET)
+    public String netLayout(){
+        return "concrete/net_layout";
+    }
+
 
 }

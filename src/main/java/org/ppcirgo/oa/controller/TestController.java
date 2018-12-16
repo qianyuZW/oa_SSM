@@ -1,6 +1,8 @@
 package org.ppcirgo.oa.controller;
 
+import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.beans.model.UserModel;
+import org.ppcirgo.oa.mapper.PlanMapper;
 import org.ppcirgo.oa.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ public class TestController {
 
     @Autowired
     private UserMapper userMapper;
+    private PlanMapper planMapper;
 
     private Exception exception = new Exception();
 
@@ -24,7 +27,13 @@ public class TestController {
         System.out.println(userModel);
         return userModel;
     }
-
+    @GetMapping("/plan")
+    @ResponseBody
+    public Object getPlans(){
+        PlanModel planModel = planMapper.getPlanById(1);
+        System.out.println(planModel);
+        return planModel;
+    }
     //测试500异常
     @GetMapping("/ex")
     public void ex(){

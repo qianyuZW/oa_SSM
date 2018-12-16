@@ -7,11 +7,10 @@ import org.ppcirgo.oa.service.UserService;
 import org.ppcirgo.oa.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
@@ -24,7 +23,7 @@ public class UserController {
     private String defaultLevel;//默认的用户等级
 
     //用户注册
-    @RequestMapping(value = "/addUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/regist",method = RequestMethod.POST)
     public Object userRegist(
             @RequestParam(value = "username",required = true) String userName,
             @RequestParam(value = "password",required = true) String password,
@@ -41,29 +40,13 @@ public class UserController {
         else
             return new AJAXResult(4009,0);
     }
-
-    //用户登陆测试案例
-    @RequestMapping(value = "/authUser",method = RequestMethod.GET)
-    @ResponseBody
-    public Object authUser(HttpServletRequest request,
-                      @RequestParam(value = "username") String username,
-                      @RequestParam(value = "password") String password){
-        UserModel userModel = new UserModel();
-        userModel.setUserName(username);
-        userModel.setPassword(password);
-        //此处调用service查询用户
-        UserModel user = userService.getUser(userModel);
-        if(user!=null){
-            //查询到该用户，登陆成功
-            request.getSession().setAttribute("session_user",user);
-            return new AJAXResult("ok");
-        }else{
-            //查询不到，登陆失败
-            return new AJAXResult("no");
-        }
-        //n new AJAXResult("");
+    //用户登录验证
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public Object login(
+            @RequestParam(value = "email") String email,
+            @RequestParam(value = "password") String password
+    ){
+        return new AJAXResult('1');
     }
-
-
 
 }
