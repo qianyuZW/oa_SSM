@@ -39,5 +39,10 @@ public class ViewController {
         return "concrete/net_layout";
     }
 
+    //邮件功能页面
+    @RequestMapping(value = "/sendemail",method = RequestMethod.GET)
+    public String sendEmail(){
+        return "concrete/oa_send_email";
+    }
 
 }
