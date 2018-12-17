@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/style/oalogin.css"/>
+    <link rel="shortcut icon" href="/img/title.png">
+    <link href="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.min.css" rel="stylesheet">
+    <title>注册</title>
 </head>
 <body>
+<div class="login">
+    <h1>童梦缘微OA系统</h1>
+    <form>
+        <input type="text" placeholder="请输入员工名" required="required" id="username">
+        <input type="password" placeholder="请输入密码" required="required" id="pwd">
+        <input type="password" placeholder="请确认密码" required="required" id="spwd">
+        <input type="email" placeholder="请输入邮箱" required="required" id="email">
+        <input type="text" placeholder="请输入企业邀请码" required="required" id="invite">
+        <button class="login_btn" type="button" id="regist">注 &nbsp;&nbsp;&nbsp;&nbsp; 册</button>
+        <button class="login_btn" type="button" id="login">已有账号,我要登录</button>
+    </form>
 
+</div>
+
+<div class="bo">
+    <p>——西电小顽童项目组提供技术支持——</p>
+</div>
+<script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+<script src="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="/js/oaregist.js"></script>
 </body>
 </html>

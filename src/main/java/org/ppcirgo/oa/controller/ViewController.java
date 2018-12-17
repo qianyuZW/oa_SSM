@@ -40,4 +40,11 @@ public class ViewController {
     }
 
 
+    //邮件功能页面
+    @RequestMapping(value = "/sendemail",method = RequestMethod.GET)
+    public String sendEmail(){
+        return "concrete/oa_send_email";
+    }
+
+
 }

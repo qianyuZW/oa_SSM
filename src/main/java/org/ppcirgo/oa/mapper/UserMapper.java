@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Update;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserMapper {
     //根据email查找员工
@@ -16,13 +18,13 @@ public interface UserMapper {
     @Insert(value = "insert into user(user_name,password,create_time,email,level) values(#{userName},#{password},#{createTime},#{email},#{level}) ")
     int saveUser(UserModel userModel);
 
-    //<<<<<<< HEAD
     //更新密码根据email
     @Update(value = "update user as t set t.password = #{password} where t.email = #{email}")
     int updatePasswordByEmail(String password,String email);
-
-//=======
-
-
-//>>>>>>> c8380a91d17713a62d50a8a22338cf13bbcfa86c
+    //更新用户状态
+    @Update(value = "update user as t set t.status = #{status} where t.email = #{email}")
+    int updateStatusByEmail(String status,String email);
+    //根据状态查询
+    @Select(value = "select * from user t where t.status = #{status}")
+    List<UserModel> getUserBystatus(String status);
 }

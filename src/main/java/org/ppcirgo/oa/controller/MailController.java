@@ -13,6 +13,10 @@ import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *  author:zhangmin
+ *  desc:有关邮件的controller
+ */
 @RestController
 public class MailController {
 

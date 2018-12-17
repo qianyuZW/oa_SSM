@@ -3,6 +3,7 @@ package org.ppcirgo.oa.controller;
 
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
+import org.ppcirgo.oa.beans.enums.UserStatus;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.service.MailService;
 import org.ppcirgo.oa.service.UserService;
@@ -13,14 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
+import static org.ppcirgo.oa.beans.consts.MsgCode.ivt;
 
 //关于登录注册与前端的接口
 @RestController
@@ -50,6 +50,8 @@ public class LoginAndRegistController {
         }
         if (userModel!=null && userModel.getPassword().equals(MD5Utils.encodeByMD5(password))){
             session.setAttribute("user",userModel);//缓存用户状态
+            userService.updateStatusByemail(email, UserStatus.online.toString());
+
             return new AJAXResult(MsgCode.success);
         }else {
             return new AJAXResult(MsgCode.error);//不匹配
@@ -59,6 +61,7 @@ public class LoginAndRegistController {
     //忘记密码
     @RequestMapping(value = "/forgetPassword",method = RequestMethod.GET)
     public Object forgetPassword(@RequestParam(value = "email",required = false) String email){
+
         UserModel userModel = userService.findUserByEmail(email);
         if (userModel==null){
             return new AJAXResult(MsgCode.notexsit);
@@ -92,7 +95,7 @@ public class LoginAndRegistController {
         userModel.setUserName(userName);
         System.out.println(userModel);
 
-        if (!MsgCode.ivt.equals(ivt))
+        if (!ivt.equals(ivt))
             return new AJAXResult(MsgCode.error);//企业未邀请
         if (userService.findUserByEmail(email)!=null)
             return new AJAXResult(MsgCode.isexsit);//邮箱已被注册
@@ -102,16 +105,37 @@ public class LoginAndRegistController {
     }
 
     //是否online
+    @RequestMapping(value = "/isOnLine",method = RequestMethod.POST)
+
     public Object isOnL(HttpServletRequest request){
         HttpSession session = request.getSession();
         Object user=session.getAttribute("user");
         if (user!=null){
             UserModel userModel = (UserModel) user;
+            userModel.setPassword(null);
+            userModel.setLevel(null);
+            userModel.setCreateTime(0);
             return new AJAXResult(userModel);
         }else {
             return new AJAXResult(MsgCode.error);
         }
 
+
+
+    }
+
+    //安全退出
+    @PostMapping("/offline")
+    public Object quit(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        UserModel user=(UserModel)session.getAttribute("user");
+        if (user!=null){
+            System.out.println("*************************"+user.getEmail());
+            userService.updateStatusByemail(user.getEmail(), UserStatus.offline.toString());
+            session.removeAttribute("user");
+        }
+
+        return new AJAXResult("not online");
     }
 
 }
