@@ -20,7 +20,7 @@ public class PlanController {
     // @Value("${oa.week_plan.level}")
     //private String defaultLevel;//默认的用户等级
 
-    @RequestMapping(value = "/weekPlan",method = RequestMethod.GET)
+    @RequestMapping(value = "/weekPlan",method = RequestMethod.POST)
     public Object weekPlan(
             @RequestParam(value = "planId",required = true) int planId,
             @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent,
@@ -48,14 +48,14 @@ public class PlanController {
             return new AJAXResult(4009,0);
     }
 
-    @RequestMapping(value = "/auditOpinion",method = RequestMethod.GET)
+    @RequestMapping(value = "/auditOpinion",method = RequestMethod.POST)
     public Object auditOpinion(
             @RequestParam(value = "planId",required = true) int planId,
 
             @RequestParam(value = "auditOpinion",required = true) String auditOpinion
 
 
-    ){
+    )
 
         PlanModel planModel2 = new PlanModel();
         planModel2.setPlanId(planId);
