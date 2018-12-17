@@ -6,13 +6,21 @@
     <link rel="shortcut icon" href="/img/title.png">
     <link href="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.min.css" rel="stylesheet">
     <title>登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
 </head>
 <body>
     <div class="login">
         <h1>童梦缘微OA系统</h1>
+        <!--<input type="checkbox" id="remb_me" style="text-align: center">-->
         <form>
             <input type="email" placeholder="请输入邮箱" required="required" id="email" name="email">
-            <input type="text" placeholder="请输入密码" required="required" id="password" name="password">
+            <input type="password" placeholder="请输入密码" required="required" id="password" name="password">
+
             <button class="login_btn" type="button" id="login">登 &nbsp;&nbsp;&nbsp;&nbsp; 录</button>
             <button class="login_btn" type="button" id="regist">没有账号,我要注册</button>
             <button class="login_btn" type="button" id="forget">忘记密码？</button>
@@ -24,5 +32,35 @@
     <script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
     <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.28.5/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="/js/oalogin.js"></script>
+    <script>
+        $(function () {
+            //begin load un&pwd
+
+            loading = function () {
+                var store = window.localStorage;
+                if ('yes'==store['isHave']){
+                    $('#email').val(store['email']);
+                    $('#password').val(store['password'])
+                    $('#remb_me').attr('checked',true)
+                }else {
+                    $('#remb_me').attr('checked',false)
+                }
+            }
+            loading();
+            //save
+            $('#remb_me').click(function () {
+                var store = window.localStorage;
+                if($("#remb_me").is(':checked')){
+                    storage["email"] = $("#email").val();
+                    storage["password"] = $("#password").val();
+                    storage["isHave"] =  "yes";
+                }else{
+                    storage["email"] = "";
+                    storage["password"] = "";
+                    storage["isHave"] =  "no";
+                }
+            })
+        })
+    </script>
 </body>
 </html>

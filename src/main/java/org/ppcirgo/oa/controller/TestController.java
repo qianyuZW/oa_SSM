@@ -23,7 +23,7 @@ public class TestController {
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
-        UserModel userModel = userMapper.getUserById(1);
+        UserModel userModel = userMapper.getUserByEmail("");
         System.out.println(userModel);
         return userModel;
     }

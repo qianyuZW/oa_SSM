@@ -14,7 +14,23 @@ public class PlanServiceImpl implements PlanService {
     private PlanMapper planMapper;
     @Override
     public int addPlan(PlanModel planModel) {
-        return planMapper.savePlan(planModel);
+        int planId = planModel.getPlanId();
+        String thisWeekContent=planModel.getThisWeekContent();
+        String nextWeekContent=planModel.getNextWeekContent();
+        long createTime=planModel.getCreateTime();
+        long modifyTime=planModel.getModifyTime();
+        String auditOpinion = planModel.getAuditOpinion();
+        long auditTime = planModel.getAuditTime();
+        //return planMapper.savePlan(planModel.getPlanId(),planModel.getThisWeekContent(),planModel.getNextWeekContent(),planModel.getCreateTime(),planModel.getModifyTime(),planModel.getAuditOpinion(),planModel.getAuditTime());
+         return planMapper.savePlan(planId,thisWeekContent,nextWeekContent,auditOpinion,auditTime,createTime,modifyTime);
+    }
+    @Override
+    public int updatePlan(PlanModel planModel){
+        int planId = planModel.getPlanId();
+        String auditOpinion = planModel.getAuditOpinion();
+        long auditTime = planModel.getAuditTime();
+        return planMapper.updatePlan(planId,auditTime,auditOpinion);
+
     }
 
     public PlanModel getPlan(PlanModel planModel) {

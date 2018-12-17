@@ -9,6 +9,6 @@ public interface PlanService {
      * @param planModel
      */
     int addPlan(PlanModel planModel);
+    int updatePlan(PlanModel planModel);
 
-    PlanModel getPlan(PlanModel planModel);
 }
