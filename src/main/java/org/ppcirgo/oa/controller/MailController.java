@@ -1,12 +1,17 @@
 package org.ppcirgo.oa.controller;
 import org.ppcirgo.oa.AJAXResult;
+import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.model.MailModel;
 import org.ppcirgo.oa.service.MailService;
+import org.ppcirgo.oa.utils.DateUtlis;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @RestController
 public class MailController {
@@ -48,6 +53,13 @@ public class MailController {
 
     private String defaultState="1";//默认的发邮件状态
 
+    /**
+     * 增加邮件记录
+     * @param sender
+     * @param receiver
+     * @param subject
+     * @return
+     */
     @RequestMapping(value = "/addEmailRecord",method = RequestMethod.GET)
     public Object addEmailRecord(
             @RequestParam(value="from",required = false) String sender,
@@ -58,7 +70,7 @@ public class MailController {
         emailModel.setSender(sender);
         emailModel.setReceiver(receiver);
         emailModel.setSubject(subject);
-        emailModel.setTime(BigInteger.valueOf(System.currentTimeMillis()));
+        emailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
         emailModel.setState(defaultState);
         System.out.println(emailModel);
 
@@ -68,6 +80,43 @@ public class MailController {
             return new AJAXResult(4009,0);
     }
 
+    /**
+     * 根据发送者查询发邮件记录
+     * @param sender
+     * @param request
+     * @return
+     */
+    @RequestMapping (value = "/getEmailRecordBySender",method = RequestMethod.GET)
+    public  Object getEmailRecordBySender(
+            @RequestParam(value="sender",required = false) String sender,
+            HttpServletRequest request
+    ){
+            HttpSession session = request.getSession();
+            MailModel mailModel=mailService.getEmailRecordBySender(sender);
+            if(mailModel==null){
+                return new AJAXResult(MsgCode.notexsit);
+            }else{
+                session.setAttribute("sender",mailModel);
+                return new AJAXResult(MsgCode.success);
+            }
+        }
+
+    }
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

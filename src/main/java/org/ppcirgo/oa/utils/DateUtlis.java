@@ -22,4 +22,9 @@ public class DateUtlis {
             return null;
         }
     }
+    public static String currentTime(long currentTime){
+        Date date=new Date(currentTime);
+        return   simpleDateFormat.format(date);
+
+    }
 }

@@ -4,10 +4,15 @@ package org.ppcirgo.oa.controller;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.model.UserModel;
+import org.ppcirgo.oa.service.MailService;
 import org.ppcirgo.oa.service.UserService;
 import org.ppcirgo.oa.utils.MD5Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +28,11 @@ public class LoginAndRegistController {
 
     @Autowired
     private UserService userService;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private JavaMailSender mailSender;
+    @Autowired
+    private MailService mailService;
     @Value("${oa.user.level}")
     private String defaultLevel;//默认的用户等级
 
@@ -47,8 +57,8 @@ public class LoginAndRegistController {
 
     }
     //忘记密码
-    @RequestMapping(value = "/forgetPassword",method = RequestMethod.POST)
-    public Object forgetPassword(@RequestParam(value = "email") String email){
+    @RequestMapping(value = "/forgetPassword",method = RequestMethod.GET)
+    public Object forgetPassword(@RequestParam(value = "email",required = false) String email){
         UserModel userModel = userService.findUserByEmail(email);
         if (userModel==null){
             return new AJAXResult(MsgCode.notexsit);
@@ -56,7 +66,9 @@ public class LoginAndRegistController {
             Map<String, String> map = MD5Utils.generatorPassword();
             String password  = (String) map.keySet().toArray()[0];//这是要发送给用户的随机密码明文
             //TODO  张敏  在这里发送 简单邮件 到指定邮箱email 发送内容自己组织模板 核心是密码明文
-
+                String subject="密码重置";
+                String content="验证密码为："+password+"为了您的账户安全，请及时重置新密码并登陆！";
+            mailService.sendSimpleMail(email,subject,content);
 
             userService.updatePasswordByemail(email,map.get(password));
             return new AJAXResult(MsgCode.success);

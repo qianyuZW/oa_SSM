@@ -48,7 +48,6 @@ public class MailServiceImpl  implements MailService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
-
         try {
             mailSender.send(message);
             logger.info("简单邮件已经发送");
@@ -86,10 +85,7 @@ public class MailServiceImpl  implements MailService {
         } catch (MessagingException e) {
             logger.error("发送嵌入静态资源的邮件已经发生异常",e);
         }
-
-
     }
-
     /**
      * 发送带附件的邮件
      * @param  to
@@ -124,6 +120,12 @@ public class MailServiceImpl  implements MailService {
     public int saveEmailRecord(MailModel mailModel) {
         return  mailMapper.saveEmailRecord(mailModel);
     }
+
+    @Override
+    public MailModel getEmailRecordBySender(String sender) {
+        return mailMapper.getEmailRecordBySender(sender);
+    }
+
 
 
 }

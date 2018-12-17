@@ -14,5 +14,10 @@ public interface MailService {
 
     //保存发邮件记录
     int saveEmailRecord(MailModel mailModel);
+
+    //通过发送者查询邮件记录
+    MailModel getEmailRecordBySender(String sender);
+
+
 }
 

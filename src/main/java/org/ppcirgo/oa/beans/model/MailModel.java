@@ -4,15 +4,13 @@ package org.ppcirgo.oa.beans.model;
 import lombok.Data;
 import lombok.ToString;
 
-import java.math.BigInteger;
-
 @Data
 @ToString
 public class MailModel {
     private Integer id;
     private String sender;
     private  String receiver;
-    private BigInteger time;
+    private String time;
     private  String  subject;
     private String state;
 
@@ -40,11 +38,11 @@ public class MailModel {
         this.receiver = receiver;
     }
 
-    public BigInteger getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(BigInteger time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -63,4 +61,6 @@ public class MailModel {
     public void setState(String state) {
         this.state = state;
     }
+
+
 }
