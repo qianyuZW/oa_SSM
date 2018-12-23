@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
+import java.util.List;
 
 @Transactional
 @Service
@@ -122,10 +123,24 @@ public class MailServiceImpl  implements MailService {
     }
 
     @Override
-    public MailModel getEmailRecordBySender(String sender) {
+    public List<MailModel> getEmailRecordBySender(String sender) {
         return mailMapper.getEmailRecordBySender(sender);
     }
 
+    @Override
+    public  List<MailModel> getEmailRecordBySubject(String subject) {
+       return  mailMapper.getEmailRecordBySubject(subject);
+    }
 
+
+    @Override
+    public int updateEmailRecordBySender(String subject, String sender) {
+        return mailMapper.updateEmailRecordBySender(subject,sender);
+    }
+
+    @Override
+    public int deleteEmailRecordBySender(String sender) {
+        return mailMapper.deleteEmailRecordBySender(sender);
+    }
 
 }
