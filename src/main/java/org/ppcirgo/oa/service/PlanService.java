@@ -10,5 +10,6 @@ public interface PlanService {
      */
     int addPlan(PlanModel planModel);
     int updatePlan(PlanModel planModel);
-
+    int deletePlanById(PlanModel planModel);
+    public PlanModel findPlanById(int planId);
 }

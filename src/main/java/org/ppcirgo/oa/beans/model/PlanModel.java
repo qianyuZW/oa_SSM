@@ -18,5 +18,12 @@ public class PlanModel implements Serializable {
         private long createTime;//创建时间
         private long modifyTime;//修改时间
         private String level;//用户等级，用作简单权限控制
+
+
+
+        private int id;
+
+
+
 }
 

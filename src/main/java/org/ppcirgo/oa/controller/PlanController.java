@@ -5,10 +5,7 @@ import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PlanController {
@@ -62,5 +59,17 @@ public class PlanController {
             return new AJAXResult(1);
         else
             return new AJAXResult(4009,0);
+    }
+
+
+    @RequestMapping(value = "/deletePlan",method = RequestMethod.GET)
+    public Object deletePlan(@ModelAttribute PlanModel planModel){
+        int result = planService.deletePlanById(planModel);
+        if (result > 0)
+            return new AJAXResult(1);
+        else
+            return new AJAXResult(4009,0);
+
+
     }
 }

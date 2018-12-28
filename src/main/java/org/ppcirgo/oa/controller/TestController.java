@@ -4,6 +4,7 @@ import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.mapper.PlanMapper;
 import org.ppcirgo.oa.mapper.UserMapper;
+import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,20 +18,23 @@ public class TestController {
     private UserMapper userMapper;
     private PlanMapper planMapper;
 
+    @Autowired
+    private PlanService planService;
+
     private Exception exception = new Exception();
 
 
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
-        UserModel userModel = userMapper.getUserByEmail("");
+        UserModel userModel = userMapper.getUserByEmail("497438584@qq.com");
         System.out.println(userModel);
         return userModel;
     }
     @GetMapping("/plan")
     @ResponseBody
     public Object getPlans(){
-        PlanModel planModel = planMapper.getPlanById(1);
+        PlanModel planModel = planService.findPlanById(12);
         System.out.println(planModel);
         return planModel;
     }
