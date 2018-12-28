@@ -62,7 +62,7 @@ public class PlanController {
     }
 
 
-    @RequestMapping(value = "/deletePlan",method = RequestMethod.GET)
+    @RequestMapping(value = "/deletePlan",method = RequestMethod.POST)
     public Object deletePlan(@ModelAttribute PlanModel planModel){
         int result = planService.deletePlanById(planModel);
         if (result > 0)
