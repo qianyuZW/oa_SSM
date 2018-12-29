@@ -27,14 +27,14 @@ public class TestController {
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
-        UserModel userModel = userMapper.getUserByEmail("497438584@qq.com");
+        UserModel userModel = userMapper.getUserByEmail("");
         System.out.println(userModel);
         return userModel;
     }
     @GetMapping("/plan")
     @ResponseBody
     public Object getPlans(){
-        PlanModel planModel = planService.findPlanById(12);
+        PlanModel planModel = planService.findPlanById(111);
         System.out.println(planModel);
         return planModel;
     }

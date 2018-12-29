@@ -1,5 +1,4 @@
 package org.ppcirgo.oa.controller;
-
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.service.PlanService;
@@ -17,8 +16,8 @@ public class PlanController {
     @Value("${oa.week_plan.level}")
     private String defaultLevel;//默认的用户等级
 
-    @RequestMapping(value = "/weekPlan",method = RequestMethod.POST)
-    public Object weekPlan(
+    @RequestMapping(value = "/addPlans",method = RequestMethod.POST)
+    public Object addPlans(
             @RequestParam(value = "planId",required = true) int planId,
             @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent,
             @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
@@ -42,8 +41,8 @@ public class PlanController {
             return new AJAXResult(4009,0);
     }
 
-    @RequestMapping(value = "/auditOpinion",method = RequestMethod.POST)
-    public Object auditOpinion(
+    @RequestMapping(value = "/auditPlans",method = RequestMethod.POST)
+    public Object auditPlans(
             @RequestParam(value = "planId",required = true) int planId,
             @RequestParam(value = "auditOpinion",required = true) String auditOpinion
 
@@ -55,15 +54,15 @@ public class PlanController {
         planModel2.setAuditOpinion(auditOpinion);
         planModel2.setAuditTime(System.currentTimeMillis());
 
-        if (planService.updatePlan(planModel2)>0)
+        if (planService.auditPlan(planModel2)>0)
             return new AJAXResult(1);
         else
             return new AJAXResult(4009,0);
     }
 
 
-    @RequestMapping(value = "/deletePlan",method = RequestMethod.POST)
-    public Object deletePlan(@ModelAttribute PlanModel planModel){
+    @RequestMapping(value = "/deletePlans",method = RequestMethod.POST)
+    public Object deletePlans(@ModelAttribute PlanModel planModel){
         int result = planService.deletePlanById(planModel);
         if (result > 0)
             return new AJAXResult(1);
@@ -71,5 +70,26 @@ public class PlanController {
             return new AJAXResult(4009,0);
 
 
+    }
+
+    @RequestMapping(value = "/modifyPlans",method = RequestMethod.POST)
+    public Object modifyPlans(
+            @RequestParam(value = "planId",required = true) int planId,
+            @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
+            @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent
+
+
+    ){
+
+        PlanModel planModel2 = new PlanModel();
+        planModel2.setPlanId(planId);
+        planModel2.setModifyTime(System.currentTimeMillis());
+        planModel2.setThisWeekContent(thisWeekContent);
+        planModel2.setNextWeekContent(nextWeekContent);
+
+        if (planService.modifyPlan(planModel2)>0)
+            return new AJAXResult(1);
+        else
+            return new AJAXResult(4009,0);
     }
 }

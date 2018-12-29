@@ -1,6 +1,5 @@
 package org.ppcirgo.oa.service.impl;
 import org.ppcirgo.oa.beans.model.PlanModel;
-import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.mapper.PlanMapper;
 import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +24,31 @@ public class PlanServiceImpl implements PlanService {
         return planMapper.savePlan(planId,thisWeekContent,nextWeekContent,auditOpinion,auditTime,createTime,modifyTime);
     }
     @Override
-    public int updatePlan(PlanModel planModel){
+    public int auditPlan(PlanModel planModel){
         int planId = planModel.getPlanId();
         String auditOpinion = planModel.getAuditOpinion();
         long auditTime = planModel.getAuditTime();
-        return planMapper.updatePlan(planId,auditTime,auditOpinion);
+        return planMapper.auditPlan(planId,auditTime,auditOpinion);
 
     }
     @Override
     public PlanModel findPlanById(int planId) {
         return planMapper.getPlanById( planId);
     }
-    public PlanModel getPlan(PlanModel planModel) {
-        //再此处调用dao层  查询数据库返回查询结
-        PlanModel plan = planMapper.getPlan(planModel.getPlanId(),planModel.getUserId());
-        return plan;
-     }
+    
+     @Override
      public int deletePlanById(PlanModel planModel){
         return planMapper.deletePlanById(planModel.getPlanId());
 
      }
+    @Override
+    public int modifyPlan(PlanModel planModel){
+        int planId = planModel.getPlanId();
+        long modifyTime = planModel.getModifyTime();
+        String thisWeekContent = planModel.getThisWeekContent();
+        String nextWeekContent = planModel.getNextWeekContent();
+        return planMapper.modifyPlan(planId,modifyTime,thisWeekContent,nextWeekContent);
 
+    }
 
 }

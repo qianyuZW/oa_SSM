@@ -9,7 +9,8 @@ public interface PlanService {
      * @param planModel
      */
     int addPlan(PlanModel planModel);
-    int updatePlan(PlanModel planModel);
+    int auditPlan(PlanModel planModel);
     int deletePlanById(PlanModel planModel);
-    public PlanModel findPlanById(int planId);
+    PlanModel findPlanById(int planId);
+    int modifyPlan(PlanModel planModel);
 }
