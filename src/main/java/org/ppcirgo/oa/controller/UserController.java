@@ -26,5 +26,4 @@ public class UserController {
         return new AJAXResult("");
     }
 
-
 }

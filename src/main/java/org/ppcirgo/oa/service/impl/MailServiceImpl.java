@@ -28,8 +28,6 @@ public class MailServiceImpl  implements MailService {
     private JavaMailSender mailSender;
     @Autowired
     private MailMapper mailMapper;
-
-
     @Value("minzhang1534781927@163.com")
     private String from;
 
@@ -42,7 +40,6 @@ public class MailServiceImpl  implements MailService {
      * @Param content    邮件内容
      *
      */
-
     public void sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
@@ -55,7 +52,6 @@ public class MailServiceImpl  implements MailService {
         }catch (Exception e){
             logger.error("发送邮件发生异常",e);
         }
-
     }
 
     /**

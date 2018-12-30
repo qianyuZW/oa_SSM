@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtlis {
-    private static SimpleDateFormat simpleDateFormat ;
+    private static SimpleDateFormat simpleDateFormat;
     static {
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }

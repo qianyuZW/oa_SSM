@@ -139,9 +139,6 @@ public class MailController {
      ){
          HttpSession session=request.getSession();
          int mailModel=mailService.updateEmailRecordBySender(subject,sender);
-         System.out.println("============="+sender);
-         System.out.println("============="+subject);
-         System.out.println("============="+mailModel);
           if(mailModel>0){
               session.setAttribute("subject",mailModel);
               session.setAttribute("sender",mailModel);
@@ -167,8 +164,6 @@ public class MailController {
          }else{
              return new AJAXResult(MsgCode.notexsit);
          }
-
-
     }
      }
 

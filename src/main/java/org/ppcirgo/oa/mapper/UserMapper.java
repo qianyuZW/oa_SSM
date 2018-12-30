@@ -17,7 +17,6 @@ public interface UserMapper {
     //注册员工
     @Insert(value = "insert into user(user_name,password,create_time,email,level) values(#{userName},#{password},#{createTime},#{email},#{level}) ")
     int saveUser(UserModel userModel);
-
     //更新密码根据email
     @Update(value = "update user as t set t.password = #{password} where t.email = #{email}")
     int updatePasswordByEmail(String password,String email);
