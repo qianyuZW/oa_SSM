@@ -34,10 +34,14 @@ public class PlanServiceImpl implements PlanService {
     }
     @Override
     public PlanModel findPlanById(int planId) {
-        return planMapper.getPlanById( planId);
+        return planMapper.getPlanById(planId);
     }
-    
-     @Override
+    @Override
+    public PlanModel findPlanByUserId(int userId) {
+        return planMapper.getPlanByUserId(userId);
+    }
+
+    @Override
      public int deletePlanById(PlanModel planModel){
         return planMapper.deletePlanById(planModel.getPlanId());
 

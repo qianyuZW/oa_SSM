@@ -38,6 +38,13 @@ public class TestController {
         System.out.println(planModel);
         return planModel;
     }
+    @GetMapping("/getPlansByUserId")
+    @ResponseBody
+    public Object getPlansByUserId(){
+        PlanModel planModel = planService.findPlanByUserId(12);
+        System.out.println(planModel);
+        return planModel;
+    }
     //测试500异常
     @GetMapping("/ex")
     public void ex(){

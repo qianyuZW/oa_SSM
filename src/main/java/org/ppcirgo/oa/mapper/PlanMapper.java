@@ -14,6 +14,9 @@ public interface PlanMapper {
     //根据id查找周报
     @Select(value = "select * from week_plan where id = #{planId}")
     PlanModel getPlanById(@Param("planId") int planId);
+    //根据用户id查周报
+    @Select(value = "select * from week_plan where user_id = #{userId}")
+    PlanModel getPlanByUserId(@Param("userId") int userId);
     //添加审核意见
     @Update(value =  "update week_plan set audit_opinion = #{auditOpinion}, audit_time = #{auditTime} where id = #{planId}")
     int auditPlan(@Param("planId") int planId, @Param("auditTime") long auditTime, @Param("auditOpinion") String auditOpinion);

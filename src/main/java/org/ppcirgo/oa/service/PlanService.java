@@ -12,5 +12,6 @@ public interface PlanService {
     int auditPlan(PlanModel planModel);
     int deletePlanById(PlanModel planModel);
     PlanModel findPlanById(int planId);
+    PlanModel findPlanByUserId(int userId);
     int modifyPlan(PlanModel planModel);
 }
