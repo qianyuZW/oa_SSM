@@ -21,8 +21,8 @@ public interface PlanMapper {
     @Update(value =  "update week_plan set modify_time = #{modifyTime}, this_week_content=#{thisWeekContent}, next_week_content=#{nextWeekContent} where id = #{planId}")
     int modifyPlan(@Param("planId") int planId, @Param("modifyTime") long modifyTime, @Param("thisWeekContent") String thisWeekContent, @Param("nextWeekContent") String nextWeekContent);
     //保存周报
-    @Insert(value = "insert into week_plan(id,this_week_content,next_week_content,audit_opinion,audit_time,create_time,modify_time) values(#{planId},#{thisWeekContent},#{nextWeekContent},#{auditOpinion},#{auditTime},#{createTime},#{modifyTime})")
-    int savePlan(@Param("planId") int planId, @Param("thisWeekContent") String thisWeekContent,@Param("nextWeekContent") String nextWeekContent, @Param("auditOpinion") String auditOpinion, @Param("auditTime") long auditTime, @Param("createTime") long createTime,@Param("modifyTime") long modifyTime);
+    @Insert(value = "insert into week_plan(id,this_week_content,next_week_content,audit_opinion,audit_time,create_time,modify_time,proposer) values(#{planId},#{thisWeekContent},#{nextWeekContent},#{auditOpinion},#{auditTime},#{createTime},#{modifyTime},#{proposer})")
+    int savePlan(@Param("planId") int planId, @Param("thisWeekContent") String thisWeekContent,@Param("nextWeekContent") String nextWeekContent, @Param("auditOpinion") String auditOpinion, @Param("auditTime") long auditTime, @Param("createTime") long createTime,@Param("modifyTime") long modifyTime, @Param("proposer") String proposer);
     //删除周报
     @Delete(value="delete from week_plan where id = #{planId}")
     int deletePlanById(@Param("planId") int planId);

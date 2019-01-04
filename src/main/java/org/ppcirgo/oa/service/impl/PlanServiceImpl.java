@@ -21,7 +21,8 @@ public class PlanServiceImpl implements PlanService {
         long modifyTime=planModel.getModifyTime();
         String auditOpinion = planModel.getAuditOpinion();
         long auditTime = planModel.getAuditTime();
-        return planMapper.savePlan(planId,thisWeekContent,nextWeekContent,auditOpinion,auditTime,createTime,modifyTime);
+        String proposer=planModel.getProposer();
+        return planMapper.savePlan(planId,thisWeekContent,nextWeekContent,auditOpinion,auditTime,createTime,modifyTime,proposer);
     }
     @Override
     public int auditPlan(PlanModel planModel){

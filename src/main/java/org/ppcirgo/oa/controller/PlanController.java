@@ -21,7 +21,8 @@ public class PlanController {
             @RequestParam(value = "planId",required = true) int planId,
             @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent,
             @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
-            @RequestParam(value = "auditOpinion",required = true) String auditOpinion
+            @RequestParam(value = "auditOpinion",required = true) String auditOpinion,
+            @RequestParam(value = "proposer",required = true) String proposer
 
 
     ){
@@ -33,6 +34,7 @@ public class PlanController {
         planModel.setAuditTime(System.currentTimeMillis());
         planModel.setModifyTime(System.currentTimeMillis());
         planModel.setAuditOpinion(auditOpinion);
+        planModel.setProposer(proposer);
         planModel.setLevel(defaultLevel);
 
         if (planService.addPlan(planModel)>0)
