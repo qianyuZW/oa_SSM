@@ -12,6 +12,8 @@ public class MailModel {
     private  String receiver;  //邮件接收者
     private String time;      //邮件发送时间
     private  String  subject;   //邮件主题
-    private String state;      //邮件发送状态  1：发送成功  0：发送失败
+    private String status;      //邮件发送状态  1：发送成功  0：发送失败
+    private String content;
+    private  String password;
 
 }

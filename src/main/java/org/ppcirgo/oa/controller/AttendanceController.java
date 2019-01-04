@@ -1,3 +1,4 @@
+/*
 package org.ppcirgo.oa.controller;
 
 import org.ppcirgo.oa.AJAXResult;
@@ -20,26 +21,13 @@ public class AttendanceController {
  @Autowired
     private AttendanceService attendanceService;
 
-//能否打卡
+//打卡状态
     @RequestMapping(value = "/attendance",method = RequestMethod.GET)
     public  Object attendance (
             @RequestParam(value="uid",required = false) Integer uid,
             HttpServletRequest request
     ){
          int  attendceModel = attendanceService.attendanceTimesJudge(uid);
-        if(attendceModel>0){
-            return new AJAXResult(MsgCode.success);
-        }else{
-            return new AJAXResult(MsgCode.notexsit);
-        }
-    }
-//工作状态
-    @RequestMapping(value = "/workingStatus",method = RequestMethod.GET)
-    public  Object workingStatus (
-            @RequestParam(value="uid",required = false) Integer uid,
-            HttpServletRequest request
-    ){
-        int  attendceModel = attendanceService.workingStatus(uid);
         if(attendceModel>0){
             return new AJAXResult(MsgCode.success);
         }else{
@@ -55,7 +43,7 @@ public class AttendanceController {
    ){
        HttpSession session=request.getSession();
        String attendanceModel= attendanceService.getStartTimeByUid(uid);
-       System.out.println("attendanceModel========"+attendanceModel);
+
        if(attendanceModel!=null){
            session.setAttribute("uid",attendanceModel);
            return new AJAXResult(MsgCode.success);
@@ -72,7 +60,7 @@ public class AttendanceController {
     ){
         HttpSession session=request.getSession();
         String attendanceModel=attendanceService.getEndTimeByUid(uid);
-        System.out.println("attendanceModel========"+attendanceModel);
+
         if(attendanceModel!=null){
             session.setAttribute("uid",attendanceModel);
             return new AJAXResult(MsgCode.success);
@@ -87,7 +75,11 @@ public class AttendanceController {
     public  Object saveAttendanceRecord(
             @RequestParam(value="attendance_name",required = false) String attendance_name,
             @RequestParam(value="start_time",required = false )String start_time ,
-            @RequestParam(value="end_time",required = false)  String end_time
+            @RequestParam(value="end_time",required = false)  String end_time,
+            @RequestParam(value = "location",required=false) String location,
+            @RequestParam(value = "start_mile",required=false) String start_mile,
+            @RequestParam(value="end_mile",required = false) String  end_mile
+
     ){
         AttendanceModel attendanceModel=new AttendanceModel();
         attendanceModel.setAttendance_name(attendance_name);
@@ -95,7 +87,10 @@ public class AttendanceController {
         attendanceModel.setEnd_time(end_time);
         attendanceModel.setDate(DateUtlis.currentTime((System.currentTimeMillis())).substring(0,10));
         attendanceModel.setStatus(defaultStatus);
-        System.out.println("attendanceModel========"+attendanceModel);
+        attendanceModel.setLocation(location);
+        attendanceModel.setStart_mile(start_mile);
+        attendanceModel.setEnd_mile(end_mile);
+
         if(attendanceService.saveAttendanceRecord(attendanceModel)>0){
             return new AJAXResult(MsgCode.success);
         }else{
@@ -104,16 +99,17 @@ public class AttendanceController {
     }
 
     //根据id更新打卡时间
-    @RequestMapping(value="/updateAttendanceRecord",method = RequestMethod.GET)
-    public Object updateAttendanceRecord(
+    @RequestMapping(value="/updatetEndTimeAndStatus",method = RequestMethod.GET)
+    public Object updatetEndTimeAndStatus(
         @RequestParam(value="end_time",required=false)  String end_time,
         @RequestParam(value="uid",required = false)  Integer uid,
         HttpServletRequest request
         ){
            HttpSession session=request.getSession();
-       int attendanceModel=attendanceService.updateAttendanceRecord(end_time,uid);
+       int attendanceModel=attendanceService.updatetEndTimeAndStatus(end_time,"打卡签退",uid);
         if(attendanceModel>0){
             session.setAttribute("end_time",attendanceModel);
+            session.setAttribute("status",attendanceModel);
             session.setAttribute("uid",attendanceModel);
             return new AJAXResult(MsgCode.success);
         }else{
@@ -121,5 +117,25 @@ public class AttendanceController {
         }
     }
 
+    //跟根据uid更新签到时间和状态
+    @RequestMapping(value="/updateStartTimeAndStatus",method = RequestMethod.GET)
+    public Object updateStartTimeAndStatus(
+            @RequestParam(value="start_time",required=false)  String start_time,
+            @RequestParam(value="uid",required = false)  Integer uid,
+            HttpServletRequest request
+    ){
+        HttpSession session=request.getSession();
+
+        int attendanceModel=attendanceService.updateStartTimeAndStatus(start_time,"打卡签到",uid);
+        if(attendanceModel>0){
+            session.setAttribute("start_time",attendanceModel);
+            session.setAttribute("status",attendanceModel);
+            session.setAttribute("uid",attendanceModel);
+            return new AJAXResult(MsgCode.success);
+        }else{
+            return new AJAXResult(MsgCode.notexsit);
+        }
+    }
     }
 
+*/

@@ -4,6 +4,7 @@ package org.ppcirgo.oa.controller;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.enums.UserStatus;
+import org.ppcirgo.oa.beans.model.MailModel;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.service.MailService;
 import org.ppcirgo.oa.service.UserService;
@@ -69,10 +70,17 @@ public class LoginAndRegistController {
             Map<String, String> map = MD5Utils.generatorPassword();
             String password  = (String) map.keySet().toArray()[0];//这是要发送给用户的随机密码明文
             //TODO  张敏  在这里发送 简单邮件 到指定邮箱email 发送内容自己组织模板 核心是密码明文
+                String sender="1534781927@163.com";
                 String subject="密码重置";
                 String content="验证密码为："+password+"为了您的账户安全，请及时重置新密码并登陆！";
-            mailService.sendSimpleMail(email,subject,content);
-
+            mailService.sendSimpleMail(sender,email,subject,content);
+            MailModel mailModel=new MailModel();
+            mailModel.setSender(sender);
+            mailModel.setReceiver(email);
+            mailModel.setSubject(subject);
+            mailModel.setContent(content);
+            mailModel.setPassword(password);
+            mailService.saveEmailRecord(mailModel);
             userService.updatePasswordByemail(email,map.get(password));
             return new AJAXResult(MsgCode.success);
         }

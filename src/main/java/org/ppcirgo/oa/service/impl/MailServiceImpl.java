@@ -6,7 +6,6 @@ import org.ppcirgo.oa.service.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -28,22 +27,17 @@ public class MailServiceImpl  implements MailService {
     private JavaMailSender mailSender;
     @Autowired
     private MailMapper mailMapper;
-    @Value("minzhang1534781927@163.com")
-    private String from;
 
     MailModel emailModel=new MailModel();
 
-    /**
-     * 发送简单邮件
-     * @Param to
-     * @Param subject
-     * @Param content    邮件内容
-     *
-     */
-    public void sendSimpleMail(String to, String subject, String content) {
+/*
+    发送简单邮件
+
+ */
+    public MailModel sendSimpleMail(String sender, String receiver, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
-        message.setTo(to);
+        message.setFrom(sender);
+        message.setTo(receiver);
         message.setSubject(subject);
         message.setText(content);
         try {
@@ -51,28 +45,28 @@ public class MailServiceImpl  implements MailService {
             logger.info("简单邮件已经发送");
         }catch (Exception e){
             logger.error("发送邮件发生异常",e);
+      /*      MailModel mailModel=new MailModel();
+            mailModel.setStatus("0");
+           saveEmailRecord(mailModel);*/
         }
+        return  emailModel;
     }
 
-    /**
+ /*   *
      * 发送嵌入静态资源（一般是图片）的邮件
-     * @Param to
-     * @Param subject
+     * @Param sender
+     * @Param receiver
      * @Param content    邮件内容，需要包括一个静态资源id，比如：<img src=\"cid:resId01\">
      * @Param resPath    静态资源路径和文件名
      * @Param resId      静态资源id
-     *
-     */
-    public void sendInilneMail(String to, String subject, String content,String resPath,String resId){
-
-
+     **/
+    public MailModel  sendInilneMail(String sender,String receiver, String subject, String content,String resPath,String resId){
         MimeMessage message= mailSender.createMimeMessage();
-
         try {
             //true表示需要创建一个multipart message
             MimeMessageHelper helper=new MimeMessageHelper(message,true);
-            helper.setFrom(from);
-            helper.setTo(to);
+            helper.setFrom(sender);
+            helper.setTo(receiver);
             helper.setSubject(subject);
             helper.setText(content,true);
             FileSystemResource res=new FileSystemResource(new File(resPath));
@@ -82,23 +76,24 @@ public class MailServiceImpl  implements MailService {
         } catch (MessagingException e) {
             logger.error("发送嵌入静态资源的邮件已经发生异常",e);
         }
+        return  emailModel;
     }
-    /**
+  /*
      * 发送带附件的邮件
-     * @param  to
-     * @param  subject
-     * @param  content
-     * @param  filePath
+     * @param
+     * @param
+     * @param
+     * @param
      */
-    public void sendAttachmentMail(String to,String subject,String content,String filePath){
+   public MailModel  sendAttachmentMail(String sender,String receiver,String subject,String content,String filePath){
 
         MimeMessage message=mailSender.createMimeMessage();
 
         try {
             //true表示需要创建一个multipart message
             MimeMessageHelper helper=new MimeMessageHelper(message,true);
-            helper.setFrom(from);
-            helper.setTo(to);
+            helper.setFrom(sender);
+            helper.setTo(receiver);
             helper.setSubject(subject);
             helper.setText(content,true);
             FileSystemResource file=new FileSystemResource(new File(filePath));
@@ -106,11 +101,10 @@ public class MailServiceImpl  implements MailService {
             helper.addAttachment(fileName,file);
             mailSender.send(message);
             logger.info("带附件的邮件已经发送");
-
-
         } catch (MessagingException e) {
             logger.error("发送带附件的邮件时发生异常",e);
         }
+          return  emailModel;
     }
 
     @Override
@@ -119,8 +113,8 @@ public class MailServiceImpl  implements MailService {
     }
 
     @Override
-    public List<MailModel> getEmailRecordBySender(String sender) {
-        return mailMapper.getEmailRecordBySender(sender);
+    public List<MailModel> getEmailRecordById(Integer id) {
+        return mailMapper.getEmailRecordById(id);
     }
 
     @Override
@@ -128,10 +122,14 @@ public class MailServiceImpl  implements MailService {
        return  mailMapper.getEmailRecordBySubject(subject);
     }
 
-
     @Override
     public int updateEmailRecordBySender(String subject, String sender) {
         return mailMapper.updateEmailRecordBySender(subject,sender);
+    }
+
+    @Override
+    public int updateStatusById(String status, String sender) {
+        return mailMapper.updateStatusById(status,sender);
     }
 
     @Override

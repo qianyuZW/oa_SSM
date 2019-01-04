@@ -1,3 +1,4 @@
+/*
 package org.ppcirgo.oa.beans.model;
 
 
@@ -13,5 +14,9 @@ public class AttendanceModel {
     private  String  end_time;
     private  String  date ;
     private  String status;
+    private  String location;
+    private  String start_mile;
+    private  String end_mile;
 
 }
+*/
