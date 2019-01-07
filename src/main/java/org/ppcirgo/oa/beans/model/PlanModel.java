@@ -9,22 +9,14 @@ import java.io.Serializable;
 @ToString
 
 public class PlanModel implements Serializable {
-        private int planId;    //周计划id
-        private int userId;   //用户id
-        private String thisWeekContent; //本周计划
-        private String nextWeekContent;//下周计划
-        private String auditOpinion;//审核意见
-        private long auditTime;//审核时间
+        private int userId;   //员工id
         private long createTime;//创建时间
         private long modifyTime;//修改时间
-        private String proposer; //计划提出者
-        private String level;//用户等级，用作简单权限控制
-
-
-
-        private int id;
-
-
-
+        private long createDay;//星期
+        private long modifyDay;//星期
+        private String comment; //备注
+        private String visitedStore;//拜访门店
+        private String developmentStore;//门店开发目标
+        private String shippingPlan;//出货计划
 }
 

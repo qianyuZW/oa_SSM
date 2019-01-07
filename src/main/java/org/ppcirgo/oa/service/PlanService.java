@@ -8,10 +8,9 @@ public interface PlanService {
      * date:2018-12-16
      * @param planModel
      */
+
     int addPlan(PlanModel planModel);
-    int auditPlan(PlanModel planModel);
-    int deletePlanById(PlanModel planModel);
-    PlanModel findPlanById(int planId);
     PlanModel findPlanByUserId(int userId);
     int modifyPlan(PlanModel planModel);
+    int deletePlanById(PlanModel planModel);
 }

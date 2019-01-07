@@ -3,8 +3,8 @@ import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class PlanController {
@@ -12,30 +12,24 @@ public class PlanController {
     @Autowired
     private PlanService planService;
 
-
-    @Value("${oa.week_plan.level}")
-    private String defaultLevel;//默认的用户等级
-
     @RequestMapping(value = "/addPlans",method = RequestMethod.POST)
     public Object addPlans(
-            @RequestParam(value = "planId",required = true) int planId,
-            @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent,
-            @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
-            @RequestParam(value = "auditOpinion",required = true) String auditOpinion,
-            @RequestParam(value = "proposer",required = true) String proposer
+            @RequestParam(value = "userId",required = true) int userId,
+            @RequestParam(value = "comment",required = true) String comment,
+            @RequestParam(value = "developmentStore",required = true) String developmentStore,
+            @RequestParam(value = "shippingPlan",required = true) String shippingPlan,
+            @RequestParam(value = "visitedStore",required = true) String visitedStore
 
 
     ){
         PlanModel planModel = new PlanModel();
-        planModel.setPlanId(planId);
-        planModel.setThisWeekContent(thisWeekContent);
-        planModel.setNextWeekContent(nextWeekContent);
+        planModel.setUserId(userId);
+        planModel.setComment(comment);
+        planModel.setDevelopmentStore(developmentStore);
+        planModel.setShippingPlan(shippingPlan);
+        planModel.setVisitedStore(visitedStore);
         planModel.setCreateTime(System.currentTimeMillis());
-        planModel.setAuditTime(System.currentTimeMillis());
-        planModel.setModifyTime(System.currentTimeMillis());
-        planModel.setAuditOpinion(auditOpinion);
-        planModel.setProposer(proposer);
-        planModel.setLevel(defaultLevel);
+        planModel.setCreateDay(System.currentTimeMillis());
 
         if (planService.addPlan(planModel)>0)
             return new AJAXResult(1);
@@ -43,55 +37,39 @@ public class PlanController {
             return new AJAXResult(4009,0);
     }
 
-    @RequestMapping(value = "/auditPlans",method = RequestMethod.POST)
-    public Object auditPlans(
-            @RequestParam(value = "planId",required = true) int planId,
-            @RequestParam(value = "auditOpinion",required = true) String auditOpinion
+    @RequestMapping(value = "/modifyPlans",method = RequestMethod.POST)
+    public Object modifyPlans(
+            @RequestParam(value = "userId",required = true) int userId,
+            @RequestParam(value = "comment",required = true) String comment,
+            @RequestParam(value = "developmentStore",required = true) String developmentStore,
+            @RequestParam(value = "shippingPlan",required = true) String shippingPlan,
+            @RequestParam(value = "visitedStore",required = true) String visitedStore
 
 
     ){
 
-        PlanModel planModel2 = new PlanModel();
-        planModel2.setPlanId(planId);
-        planModel2.setAuditOpinion(auditOpinion);
-        planModel2.setAuditTime(System.currentTimeMillis());
+        PlanModel planModel = new PlanModel();
+        planModel.setUserId(userId);
+        planModel.setComment(comment);
+        planModel.setDevelopmentStore(developmentStore);
+        planModel.setShippingPlan(shippingPlan);
+        planModel.setVisitedStore(visitedStore);
+        planModel.setModifyTime(System.currentTimeMillis());
+        planModel.setModifyDay(System.currentTimeMillis());
 
-        if (planService.auditPlan(planModel2)>0)
+        if (planService.modifyPlan(planModel)>0)
             return new AJAXResult(1);
         else
             return new AJAXResult(4009,0);
     }
-
 
     @RequestMapping(value = "/deletePlans",method = RequestMethod.POST)
     public Object deletePlans(@ModelAttribute PlanModel planModel){
-        int result = planService.deletePlanById(planModel);
-        if (result > 0)
-            return new AJAXResult(1);
-        else
-            return new AJAXResult(4009,0);
 
-
-    }
-
-    @RequestMapping(value = "/modifyPlans",method = RequestMethod.POST)
-    public Object modifyPlans(
-            @RequestParam(value = "planId",required = true) int planId,
-            @RequestParam(value = "thisWeekContent",required = true) String thisWeekContent,
-            @RequestParam(value = "nextWeekContent",required = true) String nextWeekContent
-
-
-    ){
-
-        PlanModel planModel2 = new PlanModel();
-        planModel2.setPlanId(planId);
-        planModel2.setModifyTime(System.currentTimeMillis());
-        planModel2.setThisWeekContent(thisWeekContent);
-        planModel2.setNextWeekContent(nextWeekContent);
-
-        if (planService.modifyPlan(planModel2)>0)
+        if (planService.deletePlanById(planModel) > 0)
             return new AJAXResult(1);
         else
             return new AJAXResult(4009,0);
     }
+
 }

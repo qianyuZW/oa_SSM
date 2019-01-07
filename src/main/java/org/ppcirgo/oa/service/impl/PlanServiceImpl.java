@@ -12,48 +12,35 @@ public class PlanServiceImpl implements PlanService {
 
     @Autowired
     private PlanMapper planMapper;
-    @Override
-    public int addPlan(PlanModel planModel) {
-        int planId = planModel.getPlanId();
-        String thisWeekContent=planModel.getThisWeekContent();
-        String nextWeekContent=planModel.getNextWeekContent();
+    public int addPlan(PlanModel planModel){
+        int userId=planModel.getUserId();
         long createTime=planModel.getCreateTime();
-        long modifyTime=planModel.getModifyTime();
-        String auditOpinion = planModel.getAuditOpinion();
-        long auditTime = planModel.getAuditTime();
-        String proposer=planModel.getProposer();
-        return planMapper.savePlan(planId,thisWeekContent,nextWeekContent,auditOpinion,auditTime,createTime,modifyTime,proposer);
-    }
-    @Override
-    public int auditPlan(PlanModel planModel){
-        int planId = planModel.getPlanId();
-        String auditOpinion = planModel.getAuditOpinion();
-        long auditTime = planModel.getAuditTime();
-        return planMapper.auditPlan(planId,auditTime,auditOpinion);
-
-    }
-    @Override
-    public PlanModel findPlanById(int planId) {
-        return planMapper.getPlanById(planId);
+        long createDay=planModel.getCreateDay();
+        String visitedStore=planModel.getVisitedStore();
+        String comment=planModel.getComment();
+        String shippingPlan=planModel.getShippingPlan();
+        String developmentStore=planModel.getDevelopmentStore();
+        return planMapper.savePlan(userId,createTime,visitedStore,createDay,comment,shippingPlan,developmentStore);
     }
     @Override
     public PlanModel findPlanByUserId(int userId) {
         return planMapper.getPlanByUserId(userId);
     }
-
-    @Override
-     public int deletePlanById(PlanModel planModel){
-        return planMapper.deletePlanById(planModel.getPlanId());
-
-     }
     @Override
     public int modifyPlan(PlanModel planModel){
-        int planId = planModel.getPlanId();
+        int userId = planModel.getUserId();
         long modifyTime = planModel.getModifyTime();
-        String thisWeekContent = planModel.getThisWeekContent();
-        String nextWeekContent = planModel.getNextWeekContent();
-        return planMapper.modifyPlan(planId,modifyTime,thisWeekContent,nextWeekContent);
+        long modifyDay=planModel.getModifyDay();
+        String comment = planModel.getComment();
+        String shippingPlan = planModel.getShippingPlan();
+        String visitedStore=planModel.getVisitedStore();
+        String developmentStore=planModel.getDevelopmentStore();
+        return planMapper.modifyPlan(userId,modifyTime,modifyDay,visitedStore,comment,shippingPlan,developmentStore);
 
     }
+    @Override
+    public int deletePlanById(PlanModel planModel){
+        return planMapper.deletePlanById(planModel.getUserId());
 
+    }
 }

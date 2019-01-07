@@ -22,8 +22,14 @@ public class TestController {
     private PlanService planService;
 
     private Exception exception = new Exception();
-
-
+    @GetMapping("/getPlansByUserId")
+    @ResponseBody
+    public Object getPlansByUserId(){
+        PlanModel planModel = planService.findPlanByUserId(1);
+        System.out.println(planModel);
+        return planModel;
+    }
+    /*
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
@@ -44,7 +50,7 @@ public class TestController {
         PlanModel planModel = planService.findPlanByUserId(12);
         System.out.println(planModel);
         return planModel;
-    }
+    }*/
     //测试500异常
     @GetMapping("/ex")
     public void ex(){
