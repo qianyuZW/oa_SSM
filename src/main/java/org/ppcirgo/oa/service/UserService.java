@@ -10,6 +10,7 @@ public interface UserService {
      * author:liuzhou
      * date:2018-12-09
      */
+
      int addUser(UserModel userModel);//用户注册
 
      UserModel findUserByEmail(String email);//登录验证
@@ -20,3 +21,4 @@ public interface UserService {
 
      List<UserModel> getUserByStatus(String statsu);//根据状态获得用户
 }
+

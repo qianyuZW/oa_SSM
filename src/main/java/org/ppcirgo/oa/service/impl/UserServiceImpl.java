@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(UserModel userModel) {
-       return userMapper.saveUser(userModel);
+        return userMapper.saveUser(userModel);
     }
 
     @Override
