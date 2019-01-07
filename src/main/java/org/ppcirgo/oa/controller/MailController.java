@@ -4,19 +4,18 @@ import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.model.MailModel;
 import org.ppcirgo.oa.service.MailService;
 import org.ppcirgo.oa.utils.DateUtlis;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.math.BigInteger;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -26,6 +25,8 @@ import java.util.List;
 @RestController
 public class MailController {
 
+    @Autowired
+    private JavaMailSender mailSender;
     @Autowired
     private MailService mailService;
     private String defaultStatus="1";//默认的发邮件状态
@@ -39,20 +40,27 @@ public class MailController {
             @RequestParam(value="subject",required = false)  String subject,
             @RequestParam(value="content",required = false)  String content
     ) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(sender);
+        message.setTo(receiver);
+        message.setSubject(subject);
+        message.setText(content);
+        try {
+            mailSender.send(message);
             MailModel mailModel=mailService.sendSimpleMail(sender,receiver,subject,content);
             mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
             mailModel.setStatus(defaultStatus);
-         if(mailService.saveEmailRecord(mailModel)>0)
+            mailService.saveEmailRecord(mailModel);
             return new AJAXResult(MsgCode.success);
-         else
+        }catch (Exception e) {
             return new AJAXResult(MsgCode.error);
 
+        }
     }
 /*
           带有附件的邮件
          resPath规范： E:\\urchin-oa\\ppcirgo-oa-12.12\\picture\\1.png
  */
-
     @RequestMapping(value="/sendInlineMail",method =RequestMethod.GET)
     public Object sendInilneMail(
             @RequestParam(value="sender",required = false) String sender,
@@ -60,18 +68,26 @@ public class MailController {
             @RequestParam(value="subject",required = false)  String subject,
             @RequestParam(value="content",required = false)  String content,
             @RequestParam(value="resPath",required = false)  String resPath,
-           @RequestParam(value="resId",required = false)  String resId
+          @RequestParam(value="resId",required = false)  String resId
     ) {
-
-        MailModel mailModel=mailService.sendInilneMail(sender, receiver, subject, content,resPath,resId);
-   //     return new AJAXResult("sendInlineMail success");
-            mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
-            mailModel.setStatus(defaultStatus);
-
-        if(mailService.saveEmailRecord(mailModel)>0)
-            return new AJAXResult(MsgCode.success);
-        else
-            return new AJAXResult(MsgCode.error);
+        MimeMessage message= mailSender.createMimeMessage();
+         try{
+             MimeMessageHelper helper=new MimeMessageHelper(message,true);
+             helper.setFrom(sender);
+             helper.setTo(receiver);
+             helper.setSubject(subject);
+             helper.setText(content,true);
+             FileSystemResource res=new FileSystemResource(new File(resPath));
+             helper.addInline(resId,res);
+             mailSender.send(message);
+             MailModel mailModel=mailService.sendInilneMail(sender, receiver, subject, content,resPath,resId);
+             mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
+             mailModel.setStatus(defaultStatus);
+             mailService.saveEmailRecord(mailModel);
+             return new AJAXResult(MsgCode.success);
+         } catch (MessagingException e) {
+             return new AJAXResult(MsgCode.error);
+         }
     }
 
     /*
@@ -84,17 +100,27 @@ public class MailController {
             @RequestParam(value="receiver",required = false )String receiver,
             @RequestParam(value="subject",required = false)  String subject,
             @RequestParam(value="content",required = false)  String content,
-            @RequestParam(value="filePath",required = false)  String filePath
+           @RequestParam(value="filePath",required = false)  String filePath
     ) {
-
-        MailModel mailModel=mailService.sendAttachmentMail(sender, receiver, subject, content,filePath);
-       // return new AJAXResult("sendInlineMail success");
-        mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
-        mailModel.setStatus(defaultStatus);
-        if(mailService.saveEmailRecord(mailModel)>0)
-            return new AJAXResult(MsgCode.success);
-        else
-            return new AJAXResult(MsgCode.error);
+        MimeMessage message=mailSender.createMimeMessage();
+     try{
+         MimeMessageHelper helper=new MimeMessageHelper(message,true);
+         helper.setFrom(sender);
+         helper.setTo(receiver);
+         helper.setSubject(subject);
+         helper.setText(content,true);
+         FileSystemResource file=new FileSystemResource(new File(filePath));
+         String fileName=filePath.substring(filePath.lastIndexOf(File.separator));
+         helper.addAttachment(fileName,file);
+         mailSender.send(message);
+         MailModel mailModel=mailService.sendAttachmentMail(sender, receiver, subject, content,filePath);
+         mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
+         mailModel.setStatus(defaultStatus);
+         mailService.saveEmailRecord(mailModel);
+         return new AJAXResult(MsgCode.success);
+     } catch (MessagingException e) {
+         return new AJAXResult(MsgCode.error);
+     }
     }
 
 
@@ -145,6 +171,7 @@ public class MailController {
     ){
             HttpSession session = request.getSession();
             List<MailModel> mailModel=mailService.getEmailRecordById(id);
+            System.out.println("mailModel========"+mailModel);
             if(mailModel==null){
                 return new AJAXResult(MsgCode.notexsit);
             }else{
@@ -160,7 +187,7 @@ public class MailController {
      ){
         HttpSession session=request.getSession();
          List<MailModel> mailModel=mailService.getEmailRecordBySubject(subject);
-
+         System.out.println("mailModel========"+mailModel);
         if(mailModel==null){
             return new AJAXResult(MsgCode.notexsit);
         }else{
@@ -177,6 +204,7 @@ public class MailController {
      ){
          HttpSession session=request.getSession();
          int mailModel=mailService.updateEmailRecordBySender(subject,sender);
+         System.out.println("mailModel========"+mailModel);
           if(mailModel>0){
               session.setAttribute("subject",mailModel);
               session.setAttribute("sender",mailModel);
@@ -186,16 +214,16 @@ public class MailController {
           }
      }
 
-    //根据
     // 根据发送者修改发送邮件的state
-    @RequestMapping(value="/updateStatusById",method = RequestMethod.GET)
-    public Object  updateStatusById(
+    @RequestMapping(value="/updateStatusBySender",method = RequestMethod.GET)
+    public Object  updateStatusBySender(
             @RequestParam(value="status",required = false)  String status,
             @RequestParam(value="sender",required = false)  String sender,
             HttpServletRequest request
     ){
         HttpSession session=request.getSession();
-        int mailModel=mailService.updateStatusById(status,sender);
+        int mailModel=mailService.updateStatusBySender(status,sender);
+        System.out.println("mailModel========"+mailModel);
         if(mailModel>0){
             session.setAttribute("status",mailModel);
             session.setAttribute("sender",mailModel);
@@ -211,7 +239,7 @@ public class MailController {
      ){
        HttpSession session=request.getSession();
         int mailModel=mailService.deleteEmailRecordBySender(sender);
-
+        System.out.println("mailModel========"+mailModel);
 
          if(mailModel>0){
              session.setAttribute("sender",mailModel);

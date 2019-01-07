@@ -34,7 +34,7 @@ public class MailServiceImpl  implements MailService {
     发送简单邮件
 
  */
-    public MailModel sendSimpleMail(String sender, String receiver, String subject, String content) {
+   public MailModel sendSimpleMail(String sender, String receiver, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(sender);
         message.setTo(receiver);
@@ -45,9 +45,6 @@ public class MailServiceImpl  implements MailService {
             logger.info("简单邮件已经发送");
         }catch (Exception e){
             logger.error("发送邮件发生异常",e);
-      /*      MailModel mailModel=new MailModel();
-            mailModel.setStatus("0");
-           saveEmailRecord(mailModel);*/
         }
         return  emailModel;
     }
@@ -128,8 +125,8 @@ public class MailServiceImpl  implements MailService {
     }
 
     @Override
-    public int updateStatusById(String status, String sender) {
-        return mailMapper.updateStatusById(status,sender);
+    public int updateStatusBySender(String status, String sender) {
+        return mailMapper.updateStatusBySender(status,sender);
     }
 
     @Override

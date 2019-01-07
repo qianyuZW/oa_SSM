@@ -1,4 +1,4 @@
-/*
+
 package org.ppcirgo.oa.mapper;
 
 import org.apache.ibatis.annotations.*;
@@ -13,7 +13,6 @@ import java.util.Map;
 @Repository
 public interface MailMapper {
 
-
     //保存发邮件记录
     @Insert(value="insert into emailRecord (sender,receiver,time,subject,status,content,password)  values(#{sender},#{receiver},#{time},#{subject},#{status},#{content},#{password})")
     int saveEmailRecord(MailModel mailModel);
@@ -27,16 +26,17 @@ public interface MailMapper {
      List<MailModel> getEmailRecordBySubject(@Param("subject") String subject);
 
     //根据发送者修改邮件主题
-    @Update(value = " update emailRecord set subject=#{subject} where id=#{sender} ")
+    @Update(value = " update emailRecord set subject=#{subject} where sender=#{sender} ")
     int updateEmailRecordBySender(@Param("subject") String subject, @Param("sender") String sender);
+
 
     //根据发送者改变发送邮件的state
     @Update(value=" update emailRecord set status=#{status} where sender=#{sender}")
-    int updateStatusById(@Param("status") String status  ,@Param("sender") String sender);
+    int updateStatusBySender(@Param("status") String status  ,@Param("sender") String sender);
 
     //根据发送者删除邮件
     @Delete(value="delete from emailRecord where sender=#{sender}")
     int  deleteEmailRecordBySender(@Param("sender") String sender);
 
 }
-*/
+
