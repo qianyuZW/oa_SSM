@@ -5,6 +5,8 @@ import org.ppcirgo.oa.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 
 @RestController
 public class PlanController {
@@ -29,7 +31,9 @@ public class PlanController {
         planModel.setShippingPlan(shippingPlan);
         planModel.setVisitedStore(visitedStore);
         planModel.setCreateTime(System.currentTimeMillis());
-        planModel.setCreateDay(System.currentTimeMillis());
+        long cuo=System.currentTimeMillis();
+        Date date=new Date(cuo);
+        planModel.setCreateDay(date.getDay());
 
         if (planService.addPlan(planModel)>0)
             return new AJAXResult(1);
@@ -55,7 +59,9 @@ public class PlanController {
         planModel.setShippingPlan(shippingPlan);
         planModel.setVisitedStore(visitedStore);
         planModel.setModifyTime(System.currentTimeMillis());
-        planModel.setModifyDay(System.currentTimeMillis());
+        long cuo=System.currentTimeMillis();
+        Date date=new Date(cuo);
+        planModel.setModifyDay(date.getDay());
 
         if (planService.modifyPlan(planModel)>0)
             return new AJAXResult(1);
@@ -71,5 +77,4 @@ public class PlanController {
         else
             return new AJAXResult(4009,0);
     }
-
 }

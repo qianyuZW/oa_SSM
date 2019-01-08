@@ -1,3 +1,4 @@
+
 package org.ppcirgo.oa.controller;
 
 import org.ppcirgo.oa.beans.model.PlanModel;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 @Controller
 public class TestController {
@@ -29,7 +32,7 @@ public class TestController {
         System.out.println(planModel);
         return planModel;
     }
-    /*
+
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
@@ -37,20 +40,15 @@ public class TestController {
         System.out.println(userModel);
         return userModel;
     }
-    @GetMapping("/plan")
+    @GetMapping("/getPlansByDay")
     @ResponseBody
-    public Object getPlans(){
-        PlanModel planModel = planService.findPlanById(111);
+    public Object getPlansByDay(){
+        long cuo=System.currentTimeMillis();
+        Date date=new Date(cuo);
+        PlanModel planModel = planService.findPlanByDay(1,date.getDay());
         System.out.println(planModel);
         return planModel;
     }
-    @GetMapping("/getPlansByUserId")
-    @ResponseBody
-    public Object getPlansByUserId(){
-        PlanModel planModel = planService.findPlanByUserId(12);
-        System.out.println(planModel);
-        return planModel;
-    }*/
     //测试500异常
     @GetMapping("/ex")
     public void ex(){

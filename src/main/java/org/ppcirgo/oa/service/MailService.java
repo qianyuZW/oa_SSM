@@ -1,120 +1,36 @@
 package org.ppcirgo.oa.service;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Service;
+import org.ppcirgo.oa.beans.model.MailModel;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-import java.io.File;
+import java.util.List;
 
+public interface MailService {
 
-@Service
-public class MailService {
+    //发送简单邮件
+   public MailModel sendSimpleMail(String from, String to, String subject, String content);
+  //发送带图片的邮件
+    public MailModel sendInilneMail(String from,String to, String subject, String content,String resPath,String resId);
+    //发送带附件的邮件
+    public MailModel sendAttachmentMail(String from,String to,String subject,String content,String filePath);
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    private JavaMailSender mailSender;
+    //保存发邮件记录
+    int saveEmailRecord(MailModel mailModel);
 
-    @Value("minzhang1534781927@163.com")
-    private String from;
+    //通过发送者查询邮件记录
+    List<MailModel> getEmailRecordById(Integer id);
 
-    /**
-     * 发送简单邮件
-     * @Param to
-     * @Param subject
-     * @Param content    邮件内容
-     *
-     */
+    //通过主题查询邮件记录
+    List<MailModel> getEmailRecordBySubject(String subject);
 
-    public void sendSimpleMail(String to, String subject, String content) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(content);
+    //根据发送者修改邮件主题
+   int  updateEmailRecordBySender(String subject,String sender);
 
-        try {
-            mailSender.send(message);
-            logger.info("简单邮件已经发送");
-        }catch (Exception e){
-             logger.error("发送邮件发生异常",e);
-        }
+   //根据更新邮件状态
+   int  updateStatusBySender(String status,String sender);
 
-    }
-
-    /**
-     * 发送嵌入静态资源（一般是图片）的邮件
-     * @Param to
-     * @Param subject
-     * @Param content    邮件内容，需要包括一个静态资源id，比如：<img src=\"cid:resId01\">
-     * @Param resPath    静态资源路径和文件名
-     * @Param resId      静态资源id
-     *
-     */
-    public void sendInilneMail(String to, String subject, String content,String resPath,String resId){
-
-
-        MimeMessage message= mailSender.createMimeMessage();
-
-        try {
-            //true表示需要创建一个multipart message
-            MimeMessageHelper helper=new MimeMessageHelper(message,true);
-            helper.setFrom(from);
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(content,true);
-            FileSystemResource res=new FileSystemResource(new File(resPath));
-            helper.addInline(resId,res);
-            mailSender.send(message);
-            logger.info("嵌入静态资源的邮件已经发送");
-        } catch (MessagingException e) {
-           logger.error("发送嵌入静态资源的邮件已经发生异常",e);
-        }
-
-
-    }
-
-    /**
-     * 发送带附件的邮件
-     * @param  to
-     * @param  subject
-     * @param  content
-     * @param  filePath
-     */
-     public void sendAttachmentMail(String to,String subject,String content,String filePath){
-
-          MimeMessage message=mailSender.createMimeMessage();
-
-         try {
-             //true表示需要创建一个multipart message
-             MimeMessageHelper helper=new MimeMessageHelper(message,true);
-             helper.setFrom(from);
-             helper.setTo(to);
-             helper.setSubject(subject);
-             helper.setText(content,true);
-             FileSystemResource file=new FileSystemResource(new File(filePath));
-             String fileName=filePath.substring(filePath.lastIndexOf(File.separator));
-             helper.addAttachment(fileName,file);
-             mailSender.send(message);
-             logger.info("带附件的邮件已经发送");
-
-
-         } catch (MessagingException e) {
-             logger.error("发送带附件的邮件时发生异常",e);
-         }
-     }
-
-
-
-
+    //根据发送者删除邮件
+   int deleteEmailRecordBySender(String sender);
 
 }
 

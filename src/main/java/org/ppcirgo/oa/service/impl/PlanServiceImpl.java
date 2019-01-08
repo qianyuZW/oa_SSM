@@ -41,6 +41,10 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public int deletePlanById(PlanModel planModel){
         return planMapper.deletePlanById(planModel.getUserId());
+    }
 
+    @Override
+    public PlanModel findPlanByDay(int userId,long createDay) {
+        return planMapper.getPlanByDay(userId,createDay);
     }
 }

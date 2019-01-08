@@ -19,6 +19,10 @@ public interface PlanMapper {
     //修改周计划
     @Update(value =  "update week_plan set modify_time = #{modifyTime}, modify_day=#{modifyDay}, visited_store=#{visitedStore},comment=#{comment},shipping_plan=#{shippingPlan},development_store=#{developmentStore} where user_id = #{userId}")
     int modifyPlan(@Param("userId") int userId, @Param("modifyTime") long modifyTime, @Param("modifyDay") long modifyDay, @Param("visitedStore") String visitedStore,@Param("comment") String comment,@Param("shippingPlan") String shippingPlan,@Param("developmentStore") String developmentStore);
+    //根据id删除周计划
     @Delete(value="delete from week_plan where user_id = #{userId}")
     int deletePlanById(@Param("userId") int userId);
+    //根据星期几查一周的周报
+    @Select(value = "select * from week_plan where user_id = #{userId} and create_day= #{createDay}")
+    PlanModel getPlanByDay(@Param("userId") int userId,@Param("createDay")  long createDay);
 }

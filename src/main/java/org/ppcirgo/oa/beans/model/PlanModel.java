@@ -2,7 +2,6 @@ package org.ppcirgo.oa.beans.model;
 
 import lombok.Data;
 import lombok.ToString;
-
 import java.io.Serializable;
 
 @Data
@@ -18,5 +17,6 @@ public class PlanModel implements Serializable {
         private String visitedStore;//拜访门店
         private String developmentStore;//门店开发目标
         private String shippingPlan;//出货计划
+
 }
 
