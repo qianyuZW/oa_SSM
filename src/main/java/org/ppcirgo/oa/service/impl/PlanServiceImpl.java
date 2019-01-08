@@ -15,12 +15,12 @@ public class PlanServiceImpl implements PlanService {
     public int addPlan(PlanModel planModel){
         int userId=planModel.getUserId();
         long createTime=planModel.getCreateTime();
-        long createDay=planModel.getCreateDay();
         String visitedStore=planModel.getVisitedStore();
         String comment=planModel.getComment();
         String shippingPlan=planModel.getShippingPlan();
         String developmentStore=planModel.getDevelopmentStore();
-        return planMapper.savePlan(userId,createTime,visitedStore,createDay,comment,shippingPlan,developmentStore);
+        long createDay=planModel.getCreateDay();
+        return planMapper.savePlan(userId,createTime,visitedStore,comment,shippingPlan,developmentStore,createDay);
     }
     @Override
     public PlanModel findPlanByUserId(int userId) {
@@ -30,12 +30,12 @@ public class PlanServiceImpl implements PlanService {
     public int modifyPlan(PlanModel planModel){
         int userId = planModel.getUserId();
         long modifyTime = planModel.getModifyTime();
-        long modifyDay=planModel.getModifyDay();
         String comment = planModel.getComment();
         String shippingPlan = planModel.getShippingPlan();
         String visitedStore=planModel.getVisitedStore();
         String developmentStore=planModel.getDevelopmentStore();
-        return planMapper.modifyPlan(userId,modifyTime,modifyDay,visitedStore,comment,shippingPlan,developmentStore);
+        long modifyDay=planModel.getModifyDay();
+        return planMapper.modifyPlan(userId,modifyTime,visitedStore,comment,shippingPlan,developmentStore,modifyDay);
 
     }
     @Override
@@ -44,7 +44,7 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public PlanModel findPlanByDay(int userId,long createDay) {
-        return planMapper.getPlanByDay(userId,createDay);
+    public PlanModel findPlanByDay(int userId,long weekDay) {
+        return planMapper.getPlanByDay(userId,weekDay);
     }
 }

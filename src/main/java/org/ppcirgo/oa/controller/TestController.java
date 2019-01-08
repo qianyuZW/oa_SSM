@@ -28,7 +28,7 @@ public class TestController {
     @GetMapping("/getPlansByUserId")
     @ResponseBody
     public Object getPlansByUserId(){
-        PlanModel planModel = planService.findPlanByUserId(1);
+        PlanModel planModel = planService.findPlanByUserId(2);
         System.out.println(planModel);
         return planModel;
     }
@@ -45,7 +45,7 @@ public class TestController {
     public Object getPlansByDay(){
         long cuo=System.currentTimeMillis();
         Date date=new Date(cuo);
-        PlanModel planModel = planService.findPlanByDay(1,date.getDay());
+        PlanModel planModel = planService.findPlanByDay(2,date.getDay());
         System.out.println(planModel);
         return planModel;
     }

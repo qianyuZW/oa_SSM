@@ -62,7 +62,6 @@ public class PlanController {
         long cuo=System.currentTimeMillis();
         Date date=new Date(cuo);
         planModel.setModifyDay(date.getDay());
-
         if (planService.modifyPlan(planModel)>0)
             return new AJAXResult(1);
         else
