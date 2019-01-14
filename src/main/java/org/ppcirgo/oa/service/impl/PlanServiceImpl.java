@@ -14,7 +14,7 @@ public class PlanServiceImpl implements PlanService {
     private PlanMapper planMapper;
     public int addPlan(PlanModel planModel){
         int userId=planModel.getUserId();
-        long createTime=planModel.getCreateTime();
+        String createTime=planModel.getCreateTime();
         String visitedStore=planModel.getVisitedStore();
         String comment=planModel.getComment();
         String shippingPlan=planModel.getShippingPlan();
@@ -29,7 +29,7 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public int modifyPlan(PlanModel planModel){
         int userId = planModel.getUserId();
-        long modifyTime = planModel.getModifyTime();
+        String modifyTime = planModel.getModifyTime();
         String comment = planModel.getComment();
         String shippingPlan = planModel.getShippingPlan();
         String visitedStore=planModel.getVisitedStore();
