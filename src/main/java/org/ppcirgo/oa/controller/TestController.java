@@ -1,6 +1,7 @@
 
 package org.ppcirgo.oa.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.beans.model.UserModel;
 import org.ppcirgo.oa.mapper.PlanMapper;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 
+@Slf4j
 @Controller
 public class TestController {
 
@@ -36,6 +38,7 @@ public class TestController {
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
+        log.info("someone is testing...");
         UserModel userModel = userMapper.getUserByEmail("");
         System.out.println(userModel);
         return userModel;
