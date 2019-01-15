@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.ppcirgo.oa.beans.model.PlanModel;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.soap.Text;
+
 
 
 @Repository

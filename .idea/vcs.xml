@@ -4,6 +4,5 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/OA" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/ppcirgo-oa" vcs="Git" />
   </component>
 </project>
