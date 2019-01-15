@@ -2,10 +2,11 @@ package org.ppcirgo.oa.controller;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.model.PlanModel;
 import org.ppcirgo.oa.service.PlanService;
+import org.ppcirgo.oa.utils.DateUtlis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
+import static org.ppcirgo.oa.utils.DateUtlis.currentTime;
 
 
 @RestController
@@ -30,8 +31,8 @@ public class PlanController {
         planModel.setDevelopmentStore(developmentStore);
         planModel.setShippingPlan(shippingPlan);
         planModel.setVisitedStore(visitedStore);
-        planModel.setCreateTime(System.currentTimeMillis());
-        long cuo=System.currentTimeMillis();
+        planModel.setCreateTime(DateUtlis.currentTime((System.currentTimeMillis())));
+        Long cuo=System.currentTimeMillis();
         Date date=new Date(cuo);
         planModel.setCreateDay(date.getDay());
 
@@ -58,7 +59,7 @@ public class PlanController {
         planModel.setDevelopmentStore(developmentStore);
         planModel.setShippingPlan(shippingPlan);
         planModel.setVisitedStore(visitedStore);
-        planModel.setModifyTime(System.currentTimeMillis());
+        planModel.setModifyTime(DateUtlis.currentTime((System.currentTimeMillis())));
         long cuo=System.currentTimeMillis();
         Date date=new Date(cuo);
         planModel.setModifyDay(date.getDay());
