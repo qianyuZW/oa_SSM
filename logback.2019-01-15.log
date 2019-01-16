@@ -1,0 +1,9 @@
+16:54:59.183 oa2019 [main] INFO  org.ppcirgo.oa.OaApplicationTests - Starting OaApplicationTests on ppcirgo with PID 20075 (started by ppcirgo in /media/ppcirgo/工程项目/JavaWorkSpace/oa)
+16:54:59.183 oa2019 [main] INFO  org.ppcirgo.oa.OaApplicationTests - The following profiles are active: test
+16:55:00.845 oa2019 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:55:01.117 oa2019 [main] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+16:55:01.196 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+16:55:01.199 oa2019 [main] INFO  org.ppcirgo.oa.OaApplicationTests - Started OaApplicationTests in 2.289 seconds (JVM running for 2.878)
+16:55:01.204 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:55:01.508 oa2019 [Thread-3] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+16:55:01.508 oa2019 [Thread-3] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
