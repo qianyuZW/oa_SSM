@@ -1,0 +1,25 @@
+10:28:34.416 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@70348304 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:39.426 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4c6515b8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.124 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@60571ae0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.168 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5b19bf0c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.202 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3f35b902 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.217 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@774c1c25 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.240 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2f149836 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.250 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2b8cf090 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.261 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3cb67cf0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:40.276 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@37e88678 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:42.743 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:44.363 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:46.863 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:49.363 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:51.863 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+10:28:57.748 oa2019 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@502d3c6d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+10:28:58.033 oa2019 [Thread-13] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+10:28:58.034 oa2019 [Thread-13] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+10:28:58.034 oa2019 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+10:28:59.981 oa2019 [Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
