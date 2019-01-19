@@ -42,7 +42,7 @@ public class TestController {
     @GetMapping("/t")
     @ResponseBody
     public Object t(){
-        return "ok";
+        return "ok123";
     }
 
     @GetMapping("/test")
