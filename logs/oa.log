@@ -6334,3 +6334,26 @@ java.net.ConnectException: Connection timed out: connect
 16:00:19.149 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
 16:00:21.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
 16:00:23.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+17:10:36.168 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Starting OaApplication on SC-201709111707 with PID 9488 (E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa\target\classes started by Administrator in E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa)
+17:10:36.212 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - The following profiles are active: test
+17:10:36.748 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:10:36.748 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:10:41.818 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9001 (http)
+17:10:41.878 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9001"]
+17:10:42.005 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:10:42.005 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+17:10:42.106 oa2019 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jdk.1.8.0_65\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\jdk.1.8.0_65\bin;C:\java\jre8；C:\Windows\system32;SystemRoot%;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\java\jre8\bin;C:\java\jdk.1.8.0_65\bin;F:\新建文件夹\mysql1\bin\bin;E:\软件安装包\bin;E:\课程资料\java资料\Maven\apache-maven-3.5.4\bin;E:;mysql Resource\mysql     anzhuangbao\bin;G:\blogresoft\nodejs\;G:\blogresoft\git\cmd;.;C:\java\jdk.1.8.0_65\bin;C:\java\jdk.1.8.0_65\jre\bin;.;C:\java\jdk.1.8.0_65\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;.]
+17:10:42.272 oa2019 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:10:42.272 oa2019 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5523 ms
+17:10:43.845 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+17:10:44.095 oa2019 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+17:10:44.342 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+17:10:44.564 oa2019 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:10:44.638 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+17:10:44.640 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9001"]
+17:10:44.658 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:10:44.664 oa2019 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+17:10:44.791 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9001 (http) with context path ''
+17:10:44.811 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Started OaApplication in 11.02 seconds (JVM running for 19.536)
+17:10:47.463 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:10:48.051 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
