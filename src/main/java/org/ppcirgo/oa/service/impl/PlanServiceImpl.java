@@ -44,7 +44,7 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public PlanModel findPlanByDay(int userId,long weekDay) {
-        return planMapper.getPlanByDay(userId,weekDay);
+    public PlanModel findPlanByCurrentDate(int userId,String begin,String end) {
+        return planMapper.getPlanByCurrentDate(userId,begin,end);
     }
 }
