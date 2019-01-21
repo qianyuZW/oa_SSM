@@ -53,10 +53,7 @@ public class PlanController {
             @RequestParam(value = "developmentStore",required = true) String developmentStore,
             @RequestParam(value = "shippingPlan",required = true) String shippingPlan,
             @RequestParam(value = "visitedStore",required = true) String visitedStore
-
-
     ){
-
         PlanModel planModel = new PlanModel();
         planModel.setUserId(userId);
         planModel.setComment(comment);

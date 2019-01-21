@@ -8,8 +8,9 @@ import org.ppcirgo.oa.utils.DateUtlis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.ppcirgo.oa.utils.DateUtlis;
+
 import java.util.Calendar;
+import java.util.List;
 
 
 @Transactional
@@ -30,17 +31,22 @@ public  class AttendanceServiceImpl implements AttendanceService {
     }
 
     @Override
+    public List<AttendanceModel> getAttendanceRecordById(Integer id) {
+        return attendanceMapper.getAttendanceRecordById(id);
+    }
+
+    @Override
     public int saveAttendanceRecord(AttendanceModel attendanceModel) {
         return attendanceMapper.saveAttendanceRecord(attendanceModel);
     }
 
    @Override
-    public int updateEndTimeAndStatus(String end_time, Integer id) {
+    public  int updateEndTimeAndStatus(String end_time, Integer id) {
         return attendanceMapper.updateEndTimeAndStatus(end_time,id);
     }
 
     @Override
-    public int updateStartTimeAndStatus(String start_time,Integer id) {
+    public int updateStartTimeAndStatus(String start_time, Integer id) {
         return attendanceMapper.updateStartTimeAndStatus(start_time,id);
     }
 
