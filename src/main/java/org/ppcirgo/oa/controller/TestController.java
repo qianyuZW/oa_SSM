@@ -35,6 +35,16 @@ public class TestController {
         return planModel;
     }
 
+    /**
+     * 测试 2019-01-18
+     * @return
+     */
+    @GetMapping("/t")
+    @ResponseBody
+    public Object t(){
+        return "ok123";
+    }
+
     @GetMapping("/test")
     @ResponseBody
     public Object getUsers(){
