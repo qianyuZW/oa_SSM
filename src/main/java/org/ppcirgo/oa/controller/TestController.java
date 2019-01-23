@@ -42,7 +42,7 @@ public class TestController {
     @GetMapping("/t")
     @ResponseBody
     public Object t(){
-        return "ok";
+        return "ok123";
     }
 
     @GetMapping("/test")
@@ -53,15 +53,7 @@ public class TestController {
         System.out.println(userModel);
         return userModel;
     }
-    @GetMapping("/getPlansByDay")
-    @ResponseBody
-    public Object getPlansByDay(){
-        long cuo=System.currentTimeMillis();
-        Date date=new Date(cuo);
-        PlanModel planModel = planService.findPlanByDay(2,date.getDay());
-        System.out.println(planModel);
-        return planModel;
-    }
+
     //测试500异常
     @GetMapping("/ex")
     public void ex(){
