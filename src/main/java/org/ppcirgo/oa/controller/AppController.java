@@ -20,7 +20,7 @@ public class AppController {
     //存储员工信息
     @RequestMapping(value="/saveEmployeeMessage",method = RequestMethod.POST)
     public Object saveEmployeeMessage(
-            @RequestParam(value = "name", required = false) String  name,
+            @RequestParam(value = "name", required = true) String  name,
             @RequestParam(value = "password", required = false) String  password,
             @RequestParam(value = "telephone", required = false) String  telephone,
             @RequestParam(value = "weixin", required = false) String  weixin,
@@ -46,7 +46,7 @@ public class AppController {
         employeeModel.setResign_date(resign_date);
 
         if(employeeService.saveEmployeeMessage(employeeModel)>0){
-          //  System.out.println("employeeModel"+employeeService.saveEmployeeMessage(employeeModel));
+           System.out.println("employeeModel"+employeeService.saveEmployeeMessage(employeeModel));
             return new AJAXResult(MsgCode.success);
         }else
             return new AJAXResult(MsgCode.notexsit);
