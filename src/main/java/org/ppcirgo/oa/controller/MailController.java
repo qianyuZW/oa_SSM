@@ -47,6 +47,7 @@ public class MailController {
         message.setText(content);
 
         MailModel mailModel = mailService.sendSimpleMail(sender, receiver, subject, content);
+
         try {
             mailSender.send(message);
             mailModel.setTime(DateUtlis.currentTime((System.currentTimeMillis())));
@@ -71,6 +72,7 @@ public class MailController {
             @RequestParam(value="resPath",required = false)  String resPath,
           @RequestParam(value="resId",required = false)  String resId
     ) {
+
 
         MimeMessage message= mailSender.createMimeMessage();
         MailModel mailModel=mailService.sendInilneMail(sender, receiver, subject, content,resPath,resId);
