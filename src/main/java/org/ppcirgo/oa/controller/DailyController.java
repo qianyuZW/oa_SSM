@@ -49,9 +49,6 @@ private DailyService dailyService;
                 @RequestParam(value="id",required = true)  Integer id
         ){
            String dailyModel=dailyService.getDailyById(id);
-
-<<<<<<< HEAD
-            //System.out.print("dailyModel=========="+dailyModel);
             if(dailyModel!=null){
                 return  new AJAXResult(MsgCode.success);
             }
@@ -64,9 +61,9 @@ private DailyService dailyService;
         ){
            String dailyModel=dailyService.getDailyByName(employee_name);
            System.out.print("dailyModel===="+dailyModel);
-=======
+
             log.info("dailyModel=========="+dailyModel);
->>>>>>> 21e987f29322e254689a3ee587b9b6a9692c6141
+
             if(dailyModel!=null){
                 return  new AJAXResult(MsgCode.success);
             }
