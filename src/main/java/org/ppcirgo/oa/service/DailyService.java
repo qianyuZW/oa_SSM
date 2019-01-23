@@ -10,5 +10,7 @@ public interface DailyService {
     String   getDailyById(Integer id);
 
     String   getDailyByName(String employee_name);
+
+    String getContent2DayByName(String name,String time);
 }
 

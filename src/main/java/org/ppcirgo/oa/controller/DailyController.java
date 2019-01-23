@@ -10,10 +10,8 @@ import org.ppcirgo.oa.beans.model.DailyModel;
 import org.ppcirgo.oa.service.DailyService;
 import org.ppcirgo.oa.utils.DateUtlis;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.soap.Text;
 import java.util.List;
@@ -60,7 +58,7 @@ private DailyService dailyService;
             @RequestParam(value="employee_name" ,required = true)  String employee_name
         ){
            String dailyModel=dailyService.getDailyByName(employee_name);
-           System.out.print("dailyModel===="+dailyModel);
+           //System.out.print("dailyModel===="+dailyModel);
 
             log.info("dailyModel=========="+dailyModel);
 
@@ -69,6 +67,24 @@ private DailyService dailyService;
             }
             else
                 return  new AJAXResult(MsgCode.notexsit);
+        }
+
+
+    /**
+     * 刘周
+     * @param name
+     * @return
+     */
+    @GetMapping("/getContentByName")
+    public Object getContentByName(
+                @RequestParam(name = "name") String name
+        ){
+            String content = dailyService.getContent2DayByName(name, null);
+            if (StringUtils.isEmpty(content)){
+                return new AJAXResult(MsgCode.notexsit);
+            }else {
+                return new AJAXResult(content);
+            }
         }
 }
 

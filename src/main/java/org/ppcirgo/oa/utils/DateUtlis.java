@@ -53,4 +53,8 @@ public class DateUtlis {
         return   simpleDateFormat.format(date);
 
     }
+
+    public static String getNowYMD(){
+        return simpleDateFormat.format(new Date()).substring(0,10).trim();
+    }
 }

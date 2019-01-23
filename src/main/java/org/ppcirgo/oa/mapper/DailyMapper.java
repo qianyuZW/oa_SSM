@@ -26,6 +26,9 @@ public interface DailyMapper {
     @Select(value="select * from daily where employee_name=#{employee_name}")
     String  getDailyByName(@Param("employee_name") String  employee_name);
 
+    //根据名字查找当天的content
+    @Select("select * from daily where employee_name = #{name} and created_time like  CONCAT('%',#{time},'%') ")
+    String getContent2DayByName(String name,String time);
 
 }
 
