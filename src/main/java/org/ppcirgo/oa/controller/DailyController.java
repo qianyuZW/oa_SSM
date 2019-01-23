@@ -3,6 +3,7 @@ package org.ppcirgo.oa.controller;
 
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.model.DailyModel;
@@ -19,6 +20,7 @@ import java.util.List;
 
 
 @RestController
+@Slf4j
 public class DailyController {
 @Autowired
 private DailyService dailyService;
@@ -34,7 +36,7 @@ private DailyService dailyService;
         dailyModel.setCreated_time(DateUtlis.currentTime((System.currentTimeMillis())));
         dailyModel.setContent(content);
 
-        System.out.print("dailyModel========="+dailyModel);
+        log.info("dailyModel========="+dailyModel);
 
         if(dailyService.saveDailyRecord(dailyModel)>0){
             return new AJAXResult(MsgCode.success);
@@ -48,6 +50,7 @@ private DailyService dailyService;
         ){
            String dailyModel=dailyService.getDailyById(id);
 
+<<<<<<< HEAD
             //System.out.print("dailyModel=========="+dailyModel);
             if(dailyModel!=null){
                 return  new AJAXResult(MsgCode.success);
@@ -61,6 +64,9 @@ private DailyService dailyService;
         ){
            String dailyModel=dailyService.getDailyByName(employee_name);
            System.out.print("dailyModel===="+dailyModel);
+=======
+            log.info("dailyModel=========="+dailyModel);
+>>>>>>> 21e987f29322e254689a3ee587b9b6a9692c6141
             if(dailyModel!=null){
                 return  new AJAXResult(MsgCode.success);
             }

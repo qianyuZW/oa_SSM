@@ -3,6 +3,7 @@ package org.ppcirgo.oa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * author:liuzhou
@@ -14,7 +15,8 @@ public class ViewController {
     //登录注册页面
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
-        return "oalogin";
+        //System.out.println("ok...");
+        return "/oalogin";
     }
     @RequestMapping(value = "/regist",method = RequestMethod.GET)
     public String regist(){
@@ -24,6 +26,7 @@ public class ViewController {
     //主页面
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index() {
+        //System.out.println("进来了");
         return "oaindex";
     }
 
