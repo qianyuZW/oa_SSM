@@ -13,4 +13,6 @@ public interface EmployeeService {
     EmployeeModel getEmployeeMessageByName(String name);
 
     String getPasswordByName(String name);
+
+    public int getEid(String name);
 }

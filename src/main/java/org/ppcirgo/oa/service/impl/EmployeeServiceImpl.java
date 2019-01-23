@@ -29,4 +29,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public String getPasswordByName(String name) {
         return employeeMapper.getPasswordByName(name);
     }
+
+    public int getEid(String name){
+        return employeeMapper.getEId(name);
+    }
 }

@@ -23,6 +23,8 @@ public interface EmployeeMapper {
     @Select(value="select password from employee where name=#{name}")
     String getPasswordByName(@Param("name") String name);
 
-
+    //根据员工昵称查找id -----liuzhou
+    @Select("select id from employee where name = #{name}")
+    int getEId(String name);
 
 }

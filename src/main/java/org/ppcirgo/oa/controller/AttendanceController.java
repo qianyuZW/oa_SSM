@@ -1,22 +1,21 @@
 
 package org.ppcirgo.oa.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ppcirgo.oa.AJAXResult;
 import org.ppcirgo.oa.beans.consts.MsgCode;
 import org.ppcirgo.oa.beans.model.AttendanceModel;
 import org.ppcirgo.oa.service.AttendanceService;
+import org.ppcirgo.oa.service.EmployeeService;
 import org.ppcirgo.oa.utils.DateUtlis;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
+@Slf4j
 @RestController
 public class AttendanceController {
     @Autowired
@@ -43,7 +42,7 @@ public class AttendanceController {
     ) {
        String attendanceModel =attendanceService.getStartTimeById(id);
 
-       System.out.println("attendanceModel=========="+attendanceModel);
+       log.info("attendanceModel=========="+attendanceModel);
 
         if(attendanceModel!=null){
             return new AJAXResult(MsgCode.success);
@@ -105,7 +104,7 @@ public class AttendanceController {
         attendanceModel.setEnd_img(end_img);
 
         if (attendanceService.saveAttendanceRecord(attendanceModel) > 0) {
-            System.out.println("attendanceModel======" + attendanceModel);
+            log.info("attendanceModel======" + attendanceModel);
             return new AJAXResult(MsgCode.success);
         } else {
             return new AJAXResult(MsgCode.error);
@@ -120,7 +119,7 @@ public class AttendanceController {
     ) {
         int attendanceModel = attendanceService.updateEndTimeAndStatus(end_time, id);
 
-        System.out.println("attendanceModel=========="+attendanceModel);
+        log.info("attendanceModel=========="+attendanceModel);
 
         if (attendanceModel>0) {
             return new AJAXResult(MsgCode.success);
@@ -136,7 +135,7 @@ public class AttendanceController {
     ) {
        int attendanceModel = attendanceService.updateStartTimeAndStatus(start_time, id);
        //    int attendanceModel=attendanceService.updateStartTimeAndStatus(start_time,"打卡签到",uid);
-       System.out.println("attendanceModel=========="+attendanceModel);
+       log.info("attendanceModel=========="+attendanceModel);
         if (attendanceModel>0) {
            return  new AJAXResult(MsgCode.success);
         }else
@@ -151,7 +150,7 @@ public class AttendanceController {
     ) {
        String attendanceModel= attendanceService.getWorkTimesByEmployeeId(employee_id);
 
-       System.out.println("attendanceModel====="+attendanceModel);
+        log.info("attendanceModel====="+attendanceModel);
 
         if (attendanceModel!=null) {
             return  new AJAXResult(MsgCode.success);
@@ -165,14 +164,25 @@ public class AttendanceController {
             @RequestParam(value = "date1", required = false) String date1,
             @RequestParam(value = "date2", required = false) String date2
     ) {
-       String attendanceModel = attendanceService.getSumsOfMiles(employee_id, date1, date2);
-      System.out.println("employee_id========="+employee_id);
-       System.out.println("date1================"+date1);
-        System.out.println("date2================"+date2);
-       System.out.println("attendanceModel==========="+attendanceModel);
+        String attendanceModel = attendanceService.getSumsOfMiles(employee_id, date1, date2);
+        log.info("employee_id========="+employee_id);
+        log.info("date1================"+date1);
+        log.info("date2================"+date2);
+        log.info("attendanceModel==========="+attendanceModel);
         if (attendanceModel!=null) {
             return  new AJAXResult(MsgCode.success);
         }else
             return new AJAXResult(MsgCode.notexsit);
+    }
+
+
+    @Autowired
+    private EmployeeService employeeService;
+    //根据员工姓名获取员工id
+    @GetMapping("/geteid")
+    public Object getEID(
+            @RequestParam(value = "name") String name
+    ){
+        return new AJAXResult(employeeService.getEid(name));
     }
 }
