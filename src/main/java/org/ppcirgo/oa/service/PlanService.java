@@ -13,5 +13,5 @@ public interface PlanService {
     PlanModel findPlanByUserId(int userId);
     int modifyPlan(PlanModel planModel);
     int deletePlanById(PlanModel planModel);
-    PlanModel findPlanByDay(int userId,long weekDay);
+    PlanModel findPlanByCurrentDate(int userId,String begin,String end);
 }

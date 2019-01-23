@@ -22,7 +22,7 @@ public interface PlanMapper {
     //根据id删除周计划
     @Delete(value="delete from week_plan where user_id = #{userId}")
     int deletePlanById(@Param("userId") int userId);
-    //根据星期几查一周的周报
-    @Select(value = "select * from week_plan where user_id = #{userId} and week_day= #{weekDay}")
-    PlanModel getPlanByDay(@Param("userId") int userId,@Param("weekDay")  long weekDay);
+    //根据日期查一周的周报
+    @Select(value = "select * from week_plan where user_id = #{userId} and create_time >= #{begin} and create_time <= #{end}")
+    PlanModel getPlanByCurrentDate(@Param("userId") int userId,@Param("begin") String begin,@Param("end") String end);
 }

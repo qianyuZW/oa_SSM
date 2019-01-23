@@ -34,18 +34,18 @@ public class MailServiceImpl  implements MailService {
     发送简单邮件
 
  */
-   public MailModel sendSimpleMail(String sender, String receiver, String subject, String content) {
+  public MailModel sendSimpleMail(String sender, String receiver, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(sender);
         message.setTo(receiver);
         message.setSubject(subject);
         message.setText(content);
-        try {
+      /* try {
             mailSender.send(message);
             logger.info("简单邮件已经发送");
         }catch (Exception e){
             logger.error("发送邮件发生异常",e);
-        }
+        }*/
         return  emailModel;
     }
 
