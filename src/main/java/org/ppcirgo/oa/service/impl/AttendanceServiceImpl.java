@@ -57,7 +57,7 @@ public  class AttendanceServiceImpl implements AttendanceService {
         //获得当前时间的月份，月份从0开始所以结果要加1
         int month=calendar.get(Calendar.MONTH)+1;
         double days=DateUtlis.getDaysByYearAndMonth(year,month);
-        double result1= Double.parseDouble(attendanceMapper.getWorkTimesByEmployeeId(employee_id)) /days;
+        double result1= Double.parseDouble(attendanceMapper.getWorkTimesByEmployeeId(employee_id))/days;
         double result2=(Math.round(result1*100*1000)/1000.0);
         String result3=result2+"%";
         return result3;

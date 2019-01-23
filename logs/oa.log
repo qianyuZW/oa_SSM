@@ -1,0 +1,32 @@
+13:36:38.169 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Starting OaApplication on SC-201709111707 with PID 788 (E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa\target\classes started by Administrator in E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa)
+13:36:38.173 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - The following profiles are active: test
+13:36:38.745 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+13:36:38.745 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+13:36:44.399 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9001 (http)
+13:36:44.420 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9001"]
+13:36:44.442 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:36:44.442 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+13:36:44.462 oa2019 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jdk.1.8.0_65\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\jdk.1.8.0_65\bin;C:\java\jre8；C:\Windows\system32;SystemRoot%;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\java\jre8\bin;C:\java\jdk.1.8.0_65\bin;F:\新建文件夹\mysql1\bin\bin;E:\软件安装包\bin;E:\课程资料\java资料\Maven\apache-maven-3.5.4\bin;E:;mysql Resource\mysql     anzhuangbao\bin;G:\blogresoft\nodejs\;G:\blogresoft\git\cmd;.;C:\java\jdk.1.8.0_65\bin;C:\java\jdk.1.8.0_65\jre\bin;.;C:\java\jdk.1.8.0_65\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;.]
+13:36:44.838 oa2019 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:36:44.838 oa2019 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6092 ms
+13:36:48.113 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13:36:48.348 oa2019 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+13:36:48.983 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+13:36:49.095 oa2019 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+13:36:49.147 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:36:49.149 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9001"]
+13:36:49.157 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+13:36:49.164 oa2019 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:36:49.214 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9001 (http) with context path ''
+13:36:49.219 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Started OaApplication in 19.432 seconds (JVM running for 25.167)
+13:36:51.181 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+13:36:51.647 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:36:54.146 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:36:56.647 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:36:59.146 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:01.824 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:04.147 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:06.647 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:09.147 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:11.646 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+13:37:14.146 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
