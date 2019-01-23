@@ -21,5 +21,11 @@ public interface DailyMapper {
     //根据id查找
     @Select(value="select * from daily where id=#{id}")
     String  getDailyById(@Param("id") Integer id);
+
+    //根据employee_name查找
+    @Select(value="select * from daily where employee_name=#{employee_name}")
+    String  getDailyByName(@Param("employee_name") String  employee_name);
+
+
 }
 

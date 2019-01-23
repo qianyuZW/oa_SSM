@@ -48,7 +48,19 @@ private DailyService dailyService;
         ){
            String dailyModel=dailyService.getDailyById(id);
 
-            System.out.print("dailyModel=========="+dailyModel);
+            //System.out.print("dailyModel=========="+dailyModel);
+            if(dailyModel!=null){
+                return  new AJAXResult(MsgCode.success);
+            }
+            else
+                return  new AJAXResult(MsgCode.notexsit);
+        }
+        @RequestMapping(value="/getDailyByName",method = RequestMethod.POST)
+    public Object getDailyByName(
+            @RequestParam(value="employee_name" ,required = true)  String employee_name
+        ){
+           String dailyModel=dailyService.getDailyByName(employee_name);
+           System.out.print("dailyModel===="+dailyModel);
             if(dailyModel!=null){
                 return  new AJAXResult(MsgCode.success);
             }

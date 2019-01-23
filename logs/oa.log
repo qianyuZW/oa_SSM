@@ -30,3 +30,258 @@
 13:37:09.147 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
 13:37:11.646 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
 13:37:14.146 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:24:51.890 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Starting OaApplication on SC-201709111707 with PID 10964 (E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa\target\classes started by Administrator in E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa)
+14:24:51.920 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - The following profiles are active: test
+14:24:52.672 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:24:52.673 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:24:59.200 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9001 (http)
+14:24:59.300 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9001"]
+14:24:59.332 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:24:59.333 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+14:24:59.351 oa2019 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jdk.1.8.0_65\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\jdk.1.8.0_65\bin;C:\java\jre8；C:\Windows\system32;SystemRoot%;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\java\jre8\bin;C:\java\jdk.1.8.0_65\bin;F:\新建文件夹\mysql1\bin\bin;E:\软件安装包\bin;E:\课程资料\java资料\Maven\apache-maven-3.5.4\bin;E:;mysql Resource\mysql     anzhuangbao\bin;G:\blogresoft\nodejs\;G:\blogresoft\git\cmd;.;C:\java\jdk.1.8.0_65\bin;C:\java\jdk.1.8.0_65\jre\bin;.;C:\java\jdk.1.8.0_65\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;.]
+14:24:59.483 oa2019 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:24:59.483 oa2019 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6810 ms
+14:25:01.647 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+14:25:01.954 oa2019 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+14:25:02.458 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+14:25:02.713 oa2019 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+14:25:02.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:02.824 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9001"]
+14:25:02.832 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:25:02.840 oa2019 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:25:02.911 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9001 (http) with context path ''
+14:25:02.924 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Started OaApplication in 16.429 seconds (JVM running for 26.415)
+14:25:06.772 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:25:07.159 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:07.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:10.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:12.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:15.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:17.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:20.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:22.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:25.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:27.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:30.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:32.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:35.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:37.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:40.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:42.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:45.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:47.952 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:50.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:52.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:55.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:25:57.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:00.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:02.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:05.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:07.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:10.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:12.814 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:15.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:17.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:20.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:22.816 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:25.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:27.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:30.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:32.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:35.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:37.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:43.002 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:43.002 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:45.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:47.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:50.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:52.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:55.476 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:26:57.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:00.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:02.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:05.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:07.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:10.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:12.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:15.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:17.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:20.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:22.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:25.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:27.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:30.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:32.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:35.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:39.338 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:40.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:42.814 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:45.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:47.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:50.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:52.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:55.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:27:57.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:00.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:02.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:05.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:07.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:10.463 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:12.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:15.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:17.811 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:20.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:22.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:25.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:27.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:30.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:32.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:35.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:37.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:40.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:42.813 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:45.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:47.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:50.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:54.044 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:55.313 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:28:57.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:00.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:02.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:07.277 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:07.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:10.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:12.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:15.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:17.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:20.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:22.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:25.312 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:29:27.812 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:23.379 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Starting OaApplication on SC-201709111707 with PID 10732 (E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa\target\classes started by Administrator in E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa)
+14:32:23.422 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - The following profiles are active: test
+14:32:24.761 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:32:24.762 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:32:35.204 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9001 (http)
+14:32:35.392 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9001"]
+14:32:35.415 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:32:35.415 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+14:32:35.431 oa2019 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jdk.1.8.0_65\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\jdk.1.8.0_65\bin;C:\java\jre8；C:\Windows\system32;SystemRoot%;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\java\jre8\bin;C:\java\jdk.1.8.0_65\bin;F:\新建文件夹\mysql1\bin\bin;E:\软件安装包\bin;E:\课程资料\java资料\Maven\apache-maven-3.5.4\bin;E:;mysql Resource\mysql     anzhuangbao\bin;G:\blogresoft\nodejs\;G:\blogresoft\git\cmd;.;C:\java\jdk.1.8.0_65\bin;C:\java\jdk.1.8.0_65\jre\bin;.;C:\java\jdk.1.8.0_65\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;.]
+14:32:35.863 oa2019 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:32:35.863 oa2019 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 11100 ms
+14:32:37.912 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+14:32:38.374 oa2019 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+14:32:39.140 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+14:32:39.346 oa2019 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+14:32:39.414 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:39.416 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9001"]
+14:32:39.429 oa2019 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:32:39.449 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:32:39.488 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9001 (http) with context path ''
+14:32:39.497 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Started OaApplication in 23.037 seconds (JVM running for 33.28)
+14:32:41.689 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:32:41.984 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:44.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:46.913 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:49.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:51.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:54.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:56.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:32:59.413 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:01.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:04.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:06.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:09.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:11.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:14.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:16.913 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:19.414 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:21.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:24.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:26.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:29.413 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:31.913 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:34.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:36.912 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:39.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:41.914 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:44.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:46.916 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:33:49.412 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:16.516 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Starting OaApplication on SC-201709111707 with PID 14148 (E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa\target\classes started by Administrator in E:\urchin-oa\ppcirgo-oa-2021\ppcirgo-oa)
+14:34:16.524 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - The following profiles are active: test
+14:34:16.762 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:34:16.762 oa2019 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:34:19.209 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9001 (http)
+14:34:19.228 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9001"]
+14:34:19.245 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:34:19.245 oa2019 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+14:34:19.256 oa2019 [restartedMain] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\java\jdk.1.8.0_65\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\java\jdk.1.8.0_65\bin;C:\java\jre8；C:\Windows\system32;SystemRoot%;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\java\jre8\bin;C:\java\jdk.1.8.0_65\bin;F:\新建文件夹\mysql1\bin\bin;E:\软件安装包\bin;E:\课程资料\java资料\Maven\apache-maven-3.5.4\bin;E:;mysql Resource\mysql     anzhuangbao\bin;G:\blogresoft\nodejs\;G:\blogresoft\git\cmd;.;C:\java\jdk.1.8.0_65\bin;C:\java\jdk.1.8.0_65\jre\bin;.;C:\java\jdk.1.8.0_65\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;.]
+14:34:19.418 oa2019 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:34:19.419 oa2019 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2656 ms
+14:34:20.445 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+14:34:20.631 oa2019 [restartedMain] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+14:34:20.777 oa2019 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+14:34:20.866 oa2019 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+14:34:20.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:20.929 oa2019 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9001"]
+14:34:20.938 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:34:20.944 oa2019 [restartedMain] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:34:20.968 oa2019 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9001 (http) with context path ''
+14:34:20.973 oa2019 [restartedMain] INFO  org.ppcirgo.oa.OaApplication - Started OaApplication in 6.196 seconds (JVM running for 7.667)
+14:34:22.418 oa2019 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:34:23.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:25.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:28.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:30.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:33.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:35.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:38.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:40.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:43.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:45.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:48.429 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:50.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:53.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:55.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:34:58.428 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:00.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:03.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:05.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:08.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:10.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:13.598 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:15.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:18.428 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:20.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:23.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:25.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:28.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:30.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:33.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:35.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:38.428 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:40.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:43.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:45.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:48.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:50.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:53.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:55.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:35:56.607 oa2019 [http-nio-9001-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:35:56.608 oa2019 [http-nio-9001-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:35:56.745 oa2019 [http-nio-9001-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 137 ms
+14:35:57.917 oa2019 [http-nio-9001-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'employee_name' is not present]
+14:35:58.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:00.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:03.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:05.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:08.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:10.935 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:13.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:15.926 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:18.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:20.927 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:23.426 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:25.928 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::
+14:36:28.427 oa2019 [scheduling-1] INFO  org.ppcirgo.oa.timedtask.Heart - ::......感受到**小顽童oa**心跳........::

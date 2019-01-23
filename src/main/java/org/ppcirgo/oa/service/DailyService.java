@@ -8,5 +8,7 @@ public interface DailyService {
     int saveDailyRecord(DailyModel  dailyModel);
 
     String   getDailyById(Integer id);
+
+    String   getDailyByName(String employee_name);
 }
 

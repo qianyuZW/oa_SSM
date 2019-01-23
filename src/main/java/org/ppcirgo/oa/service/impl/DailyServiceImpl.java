@@ -27,5 +27,10 @@ public class DailyServiceImpl implements DailyService {
     public String getDailyById(Integer id) {
         return dailyMapper.getDailyById(id);
     }
+
+    @Override
+    public String getDailyByName(String employee_name) {
+        return dailyMapper.getDailyByName(employee_name);
+    }
 }
 
