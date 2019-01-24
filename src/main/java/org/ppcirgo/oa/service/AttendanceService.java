@@ -47,7 +47,8 @@ public interface AttendanceService {
  int saveMorningMile(String name,String date,String mile,String mileImg);
  //保存签退里程
  int saveEveningMile(String name,String date,String mile,String mileImg);
-
+ //获取某人当天打卡记录
+ AttendanceModel getRec(String name,String date);
 
 }
 

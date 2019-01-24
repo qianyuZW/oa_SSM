@@ -137,6 +137,13 @@ public  class AttendanceServiceImpl implements AttendanceService {
         return attendanceMapper.saveEveningMile(name,date,mile,mileImg);
     }
 
+    @Override
+    public AttendanceModel getRec(String name, String date) {
+        if (StringUtils.isEmpty(date)){
+            date=DateUtlis.getNowYMD();
+        }
+        return attendanceMapper.getRec(name,date);
+    }
 
 
 }

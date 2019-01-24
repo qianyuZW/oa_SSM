@@ -273,6 +273,15 @@ public class AttendanceController {
         String mileSum = attendanceService.getMileSum(eName, null);
         return new AJAXResult(mileSum);
     }
+    //获取当天打卡记录
+    @GetMapping("/getRec")
+    public Object getRec(
+            @RequestParam(value = "e_name") String eName
+    ){
+        AttendanceModel rec = attendanceService.getRec(eName, null);
+        log.info("获取打卡记录：   who:"+eName+"  获取结果："+rec.toString());
+        return new AJAXResult(rec);
+    }
     /**-----------------------------------------刘周 2019 01 24----------------------------------------------------------------*/
 
 }

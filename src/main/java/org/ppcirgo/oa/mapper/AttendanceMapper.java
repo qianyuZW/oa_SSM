@@ -70,5 +70,8 @@ public interface AttendanceMapper {
     //保存签退里程
     @Update("update attendance set end_mile=#{mile},end_img=#{mileImg} where e_name=#{name} and date=#{date}")
     int saveEveningMile(String name,String date,String mile,String mileImg);
+    //获取某人当天打卡记录
+    @Select("select * from attendance where e_name=#{eName} and date=#{date}")
+    AttendanceModel getRec(String eName,String date);
     /*--------------------------------------------刘周 2019 01 24--------------------------------------------------------*/
 }
