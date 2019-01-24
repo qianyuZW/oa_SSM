@@ -53,22 +53,22 @@ public interface AttendanceMapper {
 
     /*--------------------------------------------刘周 2019 01 24--------------------------------------------------------*/
     //保存签到状态
-    @Insert("insert into attendance(e_name,start_time,date,start_location,start_longitude,start_latitude) values(#{0},#{1},#{2},#{3},#{4},#{5})")
+    @Insert("insert into attendance(e_name,start_time,date,start_location,start_longitude,start_latitude) values(#{name},#{startTime},#{date},#{startLoc},#{startLng},#{startLat})")
     int saveMorning(String name,String startTime,String date,String startLoc,String startLng,String startLat);
     //保存签退状态
-    @Update("update attendance set end_time=#{0},end_location=#{1},end_longitude=#{2},end_latitude=#{3} where e_name=#{4} and date=#{5}  ")
+    @Update("update attendance set end_time=#{endTime},end_location=#{endLoc},end_longitude=#{endLng},end_latitude=#{endLat} where e_name=#{eName} and date=#{date}  ")
     int saveEvening(String endTime,String endLoc,String endLng,String endLat,String eName,String date);
     //判断某人是否已经签到
-    @Select("select count(*) from attendance where e_name=#{0} and date=#{1}")
+    @Select("select count(*) from attendance where e_name=#{eName} and date=#{date}")
     long getIsBiuBiu(String eName,String date);
     //统计某人本月的里程数
     @Select("select start_mile,end_mile from attendance where e_name=#{name} and date like  CONCAT('%',#{likeDate},'%') ")
     List<MileDTO> getMileSum(String eName,String likeDate);
     //保存签到里程
-    @Update("update attendance set start_mile=#{4},start_img=#{3} where e_name=#{0} and date=#{1}")
+    @Update("update attendance set start_mile=#{mile},start_img=#{mileImg} where e_name=#{name} and date=#{date}")
     int saveMorningMile(String name,String date,String mile,String mileImg);
     //保存签退里程
-    @Update("update attendance set end_mile=#{4},end_img=#{3} where e_name=#{0} and date=#{1}")
+    @Update("update attendance set end_mile=#{mile},end_img=#{mileImg} where e_name=#{name} and date=#{date}")
     int saveEveningMile(String name,String date,String mile,String mileImg);
     /*--------------------------------------------刘周 2019 01 24--------------------------------------------------------*/
 }
