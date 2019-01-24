@@ -142,7 +142,12 @@ public  class AttendanceServiceImpl implements AttendanceService {
         if (StringUtils.isEmpty(date)){
             date=DateUtlis.getNowYMD();
         }
-        return attendanceMapper.getRec(name,date);
+        List<AttendanceModel> rec = attendanceMapper.getRec(name, date);
+        if (rec!=null){
+            return rec.get(0);
+        }else {
+            return null;
+        }
     }
 
 
