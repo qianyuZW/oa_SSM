@@ -214,6 +214,7 @@ public class AttendanceController {
             @RequestParam(value = "lng")String lng
     ){
         int res = attendanceService.saveMorning(eName, null, null, location, lng, lat);
+        log.info("url-->/morning  签到  核心参数  location:"+location+"  lat:"+lat+"  lng:"+lng+"  eName:"+eName);
         if (res==1){
             return new AJAXResult(MsgCode.success);
         }else {
@@ -243,6 +244,7 @@ public class AttendanceController {
             @RequestParam(value = "lng")String lng
     ){
         int res = attendanceService.saveEvening(null, location, lng, lat, eName, null);
+        log.info("url-->/evening  签退  核心参数  location:"+location+"  lat:"+lat+"  lng:"+lng+"  eName:"+eName);
         if (res==1){
             return new AJAXResult(MsgCode.success);
         }else {
