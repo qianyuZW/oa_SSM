@@ -48,7 +48,10 @@ public class DateUtlis {
             return null;
         }
     }
-    public static String currentTime(long currentTime){
+    public static String currentTime(Long currentTime){
+        if (currentTime==null){
+            currentTime=System.currentTimeMillis();
+        }
         Date date=new Date(currentTime);
         return   simpleDateFormat.format(date);
 

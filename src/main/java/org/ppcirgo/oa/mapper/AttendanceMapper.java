@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.ppcirgo.oa.beans.dto.MileDTO;
 import org.ppcirgo.oa.beans.model.AttendanceModel;
 import org.ppcirgo.oa.beans.model.MailModel;
 import org.springframework.stereotype.Repository;
@@ -50,5 +51,24 @@ public interface AttendanceMapper {
     @Select(value="select sum(end_mile-start_mile) as miles from attendance where employee_id=#{employee_id} and (date between #{date1} and #{date2})")
     String getSumsOfMiles(@Param("employee_id") Integer employee_id, @Param("date1") String date1, @Param("date2") String date2);
 
-
+    /*--------------------------------------------刘周 2019 01 24--------------------------------------------------------*/
+    //保存签到状态
+    @Insert("insert into attendance(e_name,start_time,date,start_location,start_longitude,start_latitude) values(#{0},#{1},#{2},#{3},#{4},#{5})")
+    int saveMorning(String name,String startTime,String date,String startLoc,String startLng,String startLat);
+    //保存签退状态
+    @Update("update attendance set end_time=#{0},end_location=#{1},end_longitude=#{2},end_latitude=#{3} where e_name=#{4} and date=#{5}  ")
+    int saveEvening(String endTime,String endLoc,String endLng,String endLat,String eName,String date);
+    //判断某人是否已经签到
+    @Select("select count(*) from attendance where e_name=#{0} and date=#{1}")
+    long getIsBiuBiu(String eName,String date);
+    //统计某人本月的里程数
+    @Select("select start_mile,end_mile from attendance where e_name=#{name} and date like  CONCAT('%',#{likeDate},'%') ")
+    List<MileDTO> getMileSum(String eName,String likeDate);
+    //保存签到里程
+    @Update("update attendance set start_mile=#{4},start_img=#{3} where e_name=#{0} and date=#{1}")
+    int saveMorningMile(String name,String date,String mile,String mileImg);
+    //保存签退里程
+    @Update("update attendance set end_mile=#{4},end_img=#{3} where e_name=#{0} and date=#{1}")
+    int saveEveningMile(String name,String date,String mile,String mileImg);
+    /*--------------------------------------------刘周 2019 01 24--------------------------------------------------------*/
 }

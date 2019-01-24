@@ -9,8 +9,8 @@ import lombok.ToString;
 @ToString
 public class AttendanceModel {
     private Integer id;
-    private Integer employee_id;
-    private  String attendance_name;
+    //private Integer employee_id;
+    private  String e_name;
     private  String  start_time;
     private  String  end_time;
     private  String  date ;
